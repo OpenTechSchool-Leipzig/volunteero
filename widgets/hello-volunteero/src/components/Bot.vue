@@ -26,7 +26,6 @@ export default {
 .speech-bubble {
   position: relative;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 25px;
   text-align: center;

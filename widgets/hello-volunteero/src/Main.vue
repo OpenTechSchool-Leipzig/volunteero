@@ -27,6 +27,7 @@ export default {
 
 <style>
 .volunteero * {
+  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 </style>

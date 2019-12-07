@@ -1,0 +1,4 @@
+[build]
+base = "widgets/hello-volunteero/"
+command = "yarn build"
+publish = "/dist"

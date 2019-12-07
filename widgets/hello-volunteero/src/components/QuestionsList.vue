@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="questions">
     <transition-group tag="ul">
       <Question
         v-for="talent in talentObjects"
@@ -65,4 +65,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.questions ul{
+list-style: none;
+padding: 0
+}
+  </style>
