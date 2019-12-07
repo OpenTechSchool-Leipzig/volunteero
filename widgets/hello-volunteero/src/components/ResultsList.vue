@@ -21,7 +21,7 @@ export default {
     }
   },
   async mounted() {
-    if (this.categories) {
+    if (!this.categories) {
       return;
     }
 
