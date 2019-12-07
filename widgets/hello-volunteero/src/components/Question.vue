@@ -1,10 +1,10 @@
 <template>
-  <li class="question" v-if="!choice">
+  <li class="question">
     <div class="question-text">{{ text }}</div>
-    <button @click="emitChoice('yes')" class="choice-btn" :disabled="choice">
+    <button @click="emitChoice('yes')" class="choice-btn">
       ja
     </button>
-    <button class="choice-btn" @click="emitChoice('no')" :disabled="choice">
+    <button class="choice-btn" @click="emitChoice('no')">
       nein
     </button>
   </li>
@@ -17,11 +17,6 @@ export default {
     id: Number,
     text: String,
     category: Array
-  },
-  data() {
-    return {
-      choice: null
-    };
   },
   methods: {
     emitChoice(choice) {

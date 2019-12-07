@@ -13,7 +13,20 @@ import Style from "@/components/Style";
 
 export default {
   components: { Bot, Modal, Style },
-  props: ["botPosition", "botSize", "primaryColor"],
+  props: {
+    botPosition: {
+      type: String,
+      default: "fixed-right"
+    },
+    botSize: {
+      type: Number,
+      default: 1
+    },
+    primaryColor: {
+      type: String,
+      default: "#009ee0"
+    }
+  },
   data() {
     return {
       showModal: false

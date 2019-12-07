@@ -82,12 +82,16 @@ export default {
   width: 100%;
   max-width: 500px;
   padding: 1rem;
-  top: 20%;
+  top: 0;
   position: fixed;
   background-color: white;
   left: 50%;
   transform: translateX(-50%);
   overflow: hidden;
+
+  @media (min-width: 800px) {
+    top: 10%;
+  }
 }
 
 .modal-enter,

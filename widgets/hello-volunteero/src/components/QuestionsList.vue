@@ -1,15 +1,17 @@
 <template>
   <div class="questions">
     <h2>Welche Fähigkeiten kannst du einbringen?</h2>
-    <transition-group tag="ul">
-      <Question
-        v-for="talent in talentObjects"
-        :key="talent.id"
-        v-bind="talent"
-        @yes="choseCategory"
-        @no="addQuestion"
-      />
-    </transition-group>
+    <ul>
+      <transition mode="out-in">
+        <Question
+          :key="activeQuestion.id"
+          v-bind="activeQuestion"
+          @yes="choseCategory"
+          @no="addQuestion"
+        />
+      </transition>
+    </ul>
+
     <button @click="resetQuestions">Neu starten</button>
   </div>
 </template>
@@ -28,8 +30,10 @@ export default {
     };
   },
   computed: {
-    talentObjects() {
-      return this.selectedTalents.map(id => talents.find(t => t.id === id));
+    activeQuestion() {
+      return talents.find(
+        t => t.id === this.selectedTalents[this.selectedTalents.length - 1]
+      );
     }
   },
   methods: {
@@ -75,6 +79,7 @@ export default {
     list-style: none;
     padding: 0;
     width: 100%;
+    margin-bottom: 60px;
   }
   h2 {
     font-size: 1.3rem;
