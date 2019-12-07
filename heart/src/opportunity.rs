@@ -57,18 +57,17 @@ impl Repository<Opportunity> for OpportunityRepository {
 
 impl OpportunityRepository {
     pub fn find(&self, filters: &Vec<OpportunityFilter>) -> Vec<Opportunity> {
-        OPPORTUNITIES.clone()
+        self.data
+            .clone()
             .into_iter()
-            .filter(|opportunity|
-                filters
-                    .into_iter()
-                    .all(|filter|
-                        match filter {
-                            OpportunityFilter::LabelFilter(filter_label) =>
-                                self.filter_by_labels(opportunity, filter_label)
-                        }
-                    )
-            ).collect()
+            .filter(|opportunity| {
+                filters.into_iter().all(|filter| match filter {
+                    OpportunityFilter::LabelFilter(filter_label) => {
+                        self.filter_by_labels(opportunity, filter_label)
+                    }
+                })
+            })
+            .collect()
     }
 
     fn filter_by_labels(&self, opportunity: &Opportunity, filter_label: &Label) -> bool {
