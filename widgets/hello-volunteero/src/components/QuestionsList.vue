@@ -10,9 +10,7 @@
         @no="addQuestion"
       />
     </transition-group>
-    <button @click="resetQuestions">
-      Neu Fragen gefällig?
-    </button>
+    <button @click="resetQuestions">Neu starten</button>
   </div>
 </template>
 
