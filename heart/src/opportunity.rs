@@ -5,13 +5,14 @@ use crate::label::Label;
 use crate::repository::Repository;
 
 use serde::Serialize;
+use crate::sample_data::OPPORTUNITIES;
 
-#[derive(Debug, PartialEq, Serialize)]
+#[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct Opportunity {
-    title: String,
-    organisation: Organisation,
-    contact: Contact,
-    labels: Vec<Label>,
+    pub title: String,
+    pub organisation: Organisation,
+    pub contact: Contact,
+    pub labels: Vec<Label>,
 }
 
 // TODO: DTO mit Stadtteil
@@ -23,6 +24,6 @@ pub struct OpportunityRepository {}
 
 impl Repository<Opportunity> for OpportunityRepository {
     fn fetch_all(&self) -> Vec<Opportunity> {
-        vec![]
+       OPPORTUNITIES.clone()
     }
 }

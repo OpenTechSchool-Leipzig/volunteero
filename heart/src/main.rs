@@ -3,12 +3,15 @@
 
 #[macro_use]
 extern crate rocket;
+#[macro_use]
+extern crate lazy_static;
 
 mod contact;
 mod label;
 mod opportunity;
 mod organisation;
 mod repository;
+mod sample_data;
 
 use rocket::State;
 use rocket_contrib::json::Json;

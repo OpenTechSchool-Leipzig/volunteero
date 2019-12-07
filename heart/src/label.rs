@@ -1,7 +1,7 @@
 use serde::Serialize;
 
-#[derive(Debug, PartialEq, Serialize)]
+#[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct Label {
-    key: String,
-    values: Vec<String>,
+    pub key: String,
+    pub values: Vec<String>,
 }
