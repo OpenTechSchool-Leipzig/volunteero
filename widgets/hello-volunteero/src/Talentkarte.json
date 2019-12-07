@@ -1,107 +1,107 @@
 [
-    {
-        "id":1,
-        "category":["vorstand"],
-        "text":"Ich kenne mich in rechtlichen Fragen aus."
-    },
-    {
-        "id":2,
-        "category":["vorstand"],
-        "text":"Ich interessiere mich für Leitungsaufgaben."
-    },
-    {
-        "id":3,
-        "category":["vorstand","training"],
-        "text":"Ich übernehme gerne Verantwortung."
-    },
-    {
-        "id":4,
-        "category":["vorstand","training"],
-        "text":"Ich kann gut organisieren."
-    },
-    {
-        "id":5,
-        "category":["training"],
-        "text":"Ich springe gerne mal als Trainer ein."
-    },
-    {
-        "id":6,
-        "category":["training"],
-        "text":"Ich arbeite lieber im Team."
-    },
-    {
-        "id":7,
-        "category":["training","verein"],
-        "text":"Ich habe auch abends Zeit."
-    },
-    {
-        "id":8,
-        "category":["training","verein"],
-        "text":"Ich könnte mir Vorstellen eine Aufgabe zu übernehmen."
-    },
-    {
-        "id":9,
-        "category":["verein"],
-        "text":"Ich habe Lust auf Gemeinschaft."
-    },
-    {
-        "id":10,
-        "category":["verein"],
-        "text":"Ich helfe gerne bei Veranstaltungen."
-    },
-    {
-        "id":11,
-        "category":["verein","vorstand","training"],
-        "text":"Ich würde mich gerne im Verein engagieren."
-    },
-    {
-        "id":12,
-        "category":["verein"],
-        "text":"Ich möchte regelmäßig am Vereinsleben teilnehmen."
-    },
-    {
-        "id":13,
-        "category":["verein","vorstand"],
-        "text":"Ich repräsentiere gerne meinen Verein."
-    },
-    {
-        "id":14,
-        "category":["vorstand"],
-        "text":"Verwaltungsaufgaben machen mir Spaß."
-    },
-    {
-        "id":15,
-        "category":["verein"],
-        "text":"Ich stünde für eine befristete Aufgabe zur Verfügung."
-    },
-    {
-        "id":16,
-        "category":["training"],
-        "text":"Ich kenne mich in einer Sportart gut aus."
-    },
-    {
-        "id":17,
-        "category":["vorstand"],
-        "text":"Ich interessiere mich für Vorstandsaufgaben."
-    },
-    {
-        "id":18,
-        "category":["training"],
-        "text":"Ich würde gerne eine Sportgruppe anleiten."
-    },
-    {
-        "id":19,
-        "category":["training"],
-        "text":"Ich bin Arzt/Ärztin/PflegerIn/SanitäterIn."
-    },
-    {
-        "id":20,
-        "category":["verein"],
-        "text":"Ich verkaufe gerne."
-    },
-    {
-        "id":21,
-        "category":["verein"],
-        "text":"Ich könnte Sponsoren finden."
-    }
+  {
+    "id": 1,
+    "category": ["Vorstandsarbeit"],
+    "text": "Ich kenne mich in rechtlichen Fragen aus."
+  },
+  {
+    "id": 2,
+    "category": ["Vorstandsarbeit"],
+    "text": "Ich interessiere mich für Leitungsaufgaben."
+  },
+  {
+    "id": 3,
+    "category": ["Vorstandsarbeit", "Sportbetrieb"],
+    "text": "Ich übernehme gerne Verantwortung."
+  },
+  {
+    "id": 4,
+    "category": ["Vorstandsarbeit", "Sportbetrieb"],
+    "text": "Ich kann gut organisieren."
+  },
+  {
+    "id": 5,
+    "category": ["Sportbetrieb"],
+    "text": "Ich springe gerne mal als Trainer ein."
+  },
+  {
+    "id": 6,
+    "category": ["Sportbetrieb"],
+    "text": "Ich arbeite lieber im Team."
+  },
+  {
+    "id": 7,
+    "category": ["Sportbetrieb", "Vereinsleben"],
+    "text": "Ich habe auch abends Zeit."
+  },
+  {
+    "id": 8,
+    "category": ["Sportbetrieb", "Vereinsleben"],
+    "text": "Ich könnte mir Vorstellen eine Aufgabe zu übernehmen."
+  },
+  {
+    "id": 9,
+    "category": ["Vereinsleben"],
+    "text": "Ich habe Lust auf Gemeinschaft."
+  },
+  {
+    "id": 10,
+    "category": ["Vereinsleben"],
+    "text": "Ich helfe gerne bei Veranstaltungen."
+  },
+  {
+    "id": 11,
+    "category": ["Vereinsleben", "Vorstandsarbeit", "Sportbetrieb"],
+    "text": "Ich würde mich gerne im Vereinsleben engagieren."
+  },
+  {
+    "id": 12,
+    "category": ["Vereinsleben"],
+    "text": "Ich möchte regelmäßig am Vereinslebensleben teilnehmen."
+  },
+  {
+    "id": 13,
+    "category": ["Vereinsleben", "Vorstandsarbeit"],
+    "text": "Ich repräsentiere gerne meinen Vereinsleben."
+  },
+  {
+    "id": 14,
+    "category": ["Vorstandsarbeit"],
+    "text": "Verwaltungsaufgaben machen mir Spaß."
+  },
+  {
+    "id": 15,
+    "category": ["Vereinsleben"],
+    "text": "Ich stünde für eine befristete Aufgabe zur Verfügung."
+  },
+  {
+    "id": 16,
+    "category": ["Sportbetrieb"],
+    "text": "Ich kenne mich in einer Sportart gut aus."
+  },
+  {
+    "id": 17,
+    "category": ["Vorstandsarbeit"],
+    "text": "Ich interessiere mich für Vorstandsarbeitsaufgaben."
+  },
+  {
+    "id": 18,
+    "category": ["Sportbetrieb"],
+    "text": "Ich würde gerne eine Sportgruppe anleiten."
+  },
+  {
+    "id": 19,
+    "category": ["Sportbetrieb"],
+    "text": "Ich bin Arzt/Ärztin/PflegerIn/SanitäterIn."
+  },
+  {
+    "id": 20,
+    "category": ["Vereinsleben"],
+    "text": "Ich verkaufe gerne."
+  },
+  {
+    "id": 21,
+    "category": ["Vereinsleben"],
+    "text": "Ich könnte Sponsoren finden."
+  }
 ]
