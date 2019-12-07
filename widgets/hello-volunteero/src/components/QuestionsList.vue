@@ -35,7 +35,7 @@ export default {
     },
     choseCategory(cats) {
       this.chosenCategories = [...this.chosenCategories, ...cats];
-      this.addQuestion;
+      this.addQuestion();
     },
     addQuestion() {
       if (this.selectedTalents.length < 3) {
