@@ -1,13 +1,18 @@
 <template>
-  <transition-group tag="ul">
-    <Question
-      v-for="talent in talentObjects"
-      :key="talent.id"
-      v-bind="talent"
-      @yes="choseCategory"
-      @no="addQuestion"
-    />
-  </transition-group>
+  <div>
+    <transition-group tag="ul">
+      <Question
+        v-for="talent in talentObjects"
+        :key="talent.id"
+        v-bind="talent"
+        @yes="choseCategory"
+        @no="addQuestion"
+      />
+    </transition-group>
+    <button>
+      Neu Fragen gefällig?
+    </button>
+  </div>
 </template>
 
 <script>
@@ -45,8 +50,8 @@ export default {
         }
         this.selectedTalents = [...this.selectedTalents, newId];
       } else {
-        // TODO: remove duplicates form chosenCategories Array
-        this.$emit("setResults", this.chosenCategories);
+        // remove duplicates form chosenCategories through creating a new Set from the Array and parse it back using the spread operator.
+        this.$emit("setResults", [...new Set(this.chosenCategories)]);
       }
     }
   },

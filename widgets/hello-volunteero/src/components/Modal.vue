@@ -3,7 +3,11 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <QuestionList v-if="!showResults" @setResults="onSetResults" />
+        <QuestionList @setResults="onSetResults" />
+        <ul v-if="showResults">
+          <li v-for="(cat, key) in chosenCategories" :key="key">{{ cat }}</li>
+        </ul>
+        <ResultsList />
       </div>
       <button
         @click.prevent="emitClose"
@@ -16,9 +20,11 @@
 
 <script>
 import QuestionList from "./QuestionsList";
+import ResultsList from "./ResultsList";
 export default {
   components: {
-    QuestionList
+    QuestionList,
+    ResultsList
   },
   data() {
     return {
