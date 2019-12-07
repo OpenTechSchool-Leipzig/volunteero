@@ -1,7 +1,15 @@
 use crate::address::Address;
+
 use crate::contact::Contact;
+use crate::contact::ContactOption;
+
 use crate::organisation::Organisation;
+use crate::dto::DTO;
+use std::convert::TryFrom;
+use std::convert::TryInto ;
+
 use crate::label::Label;
+
 
 use crate::repository::Repository;
 
@@ -37,7 +45,9 @@ pub enum OpportunityFilter {
 }
 
 #[derive(Debug, PartialEq)]
-pub struct OpportunityRepository {}
+pub struct OpportunityRepository {
+    data: Vec<Opportunity>
+}
 
 impl Repository<Opportunity> for OpportunityRepository {
     fn fetch_all(&self) -> Vec<Opportunity> {
@@ -156,3 +166,78 @@ mod tests {
     }
 }
 
+impl TryFrom<DTO> for Opportunity {
+    type Error = String;
+  
+    fn try_from(raw_data: DTO) -> Result<Self, Self::Error> {
+        // TODO: validate
+        Ok(Self { 
+                title: raw_data.jobdescription, 
+                organisation: Organisation { 
+                    id: raw_data.organisation_id,
+                    name: raw_data.organisation_name,
+                },
+                locations: vec![Address {
+                    name: raw_data.address_1_name,
+                    street: raw_data.address_1_street,
+                    house_number: raw_data.address_1_housenr,
+                    postcode: raw_data.address_1_postcode,
+                    city: raw_data.address_1_city,
+                }]
+                ,
+                contact: Contact {
+                    name: raw_data.contact_name,
+                    options: extract_options(
+                        raw_data.contact_email, 
+                        raw_data.contact_phone, 
+                        raw_data.contact_mobile, 
+                    )},
+                labels:  extract_labels(
+                        raw_data.label_1, 
+                        raw_data.label_2, 
+                        raw_data.label_3, 
+                        raw_data.label_4
+                    )
+                }
+        )}
+    }
+    
+  
+
+// TODO should return all addresses ||  now only returns one adress
+  fn extract_options(
+      email: String, 
+      phone: String, 
+      mobile: String) -> Vec<ContactOption> {
+        
+        use ContactOption::*;
+        vec![
+            EMail((email, "".to_string()).try_into().unwrap()),
+            Phone((phone, "".to_string()).try_into().unwrap()),
+            ]
+  }
+
+  fn extract_labels(
+        label_1: String,
+        label_2: String,
+        label_3: String,
+        label_4: String) -> Vec<Label> {
+            vec![
+                Label {
+                    key: "hi".to_string(),
+                    values: vec!["hi".to_string(), "hi".to_string()]
+                },
+                Label {
+                    key: "hi".to_string(),
+                    values: vec!["hi".to_string(), "hi".to_string()]
+                },
+                Label {
+                    key: "hi".to_string(),
+                    values: vec!["hi".to_string(), "hi".to_string()]
+                },
+                Label {
+                    key: "hi".to_string(),
+                    values: vec!["hi".to_string(), "hi".to_string()]
+                },
+            ]
+        }

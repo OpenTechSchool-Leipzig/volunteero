@@ -46,10 +46,12 @@ fn find_by_labels(labels: LabelList, opportunities: State<OpportunityRepository>
 // TODO: presumably our answers are missing proper encoding/chartes headers
 
 fn main() {
-    if let Err(err) = csv_parser() {
-        println!("error running example: {}", err);
-        process::exit(1);
+    let result = match csv_parser() {
+        Err() => SystemExit::1,
+        Ok() => 
     }
+
+    // convert Vec<Opportunity> into Opportunity
 
     rocket::ignite()
         .manage(OpportunityRepository {})
