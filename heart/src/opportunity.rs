@@ -18,7 +18,7 @@ use crate::sample_data::OPPORTUNITIES;
 
 #[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct Opportunity {
-    pub title: String,
+    pub jobdescription: String,
     pub organisation: Organisation,
     pub locations: Vec<Address>,
     pub contact: Contact,
@@ -46,12 +46,12 @@ pub enum OpportunityFilter {
 
 #[derive(Debug, PartialEq)]
 pub struct OpportunityRepository {
-    data: Vec<Opportunity>
+    pub data: Vec<Opportunity>
 }
 
 impl Repository<Opportunity> for OpportunityRepository {
     fn fetch_all(&self) -> Vec<Opportunity> {
-        OPPORTUNITIES.clone()
+        self.data.clone()
     }
 }
 
@@ -121,7 +121,7 @@ mod tests {
 
         assert_eq!(
             actual,
-            OPPORTUNITIES.clone()
+            OPPOTrainerRTUNITIES.clone()
         )
     }
 
@@ -172,7 +172,7 @@ impl TryFrom<DTO> for Opportunity {
     fn try_from(raw_data: DTO) -> Result<Self, Self::Error> {
         // TODO: validate
         Ok(Self { 
-                title: raw_data.jobdescription, 
+                jobdescription: raw_data.jobdescription, 
                 organisation: Organisation { 
                     id: raw_data.organisation_id,
                     name: raw_data.organisation_name,
@@ -222,22 +222,38 @@ impl TryFrom<DTO> for Opportunity {
         label_2: String,
         label_3: String,
         label_4: String) -> Vec<Label> {
-            vec![
-                Label {
-                    key: "hi".to_string(),
-                    values: vec!["hi".to_string(), "hi".to_string()]
-                },
-                Label {
-                    key: "hi".to_string(),
-                    values: vec!["hi".to_string(), "hi".to_string()]
-                },
-                Label {
-                    key: "hi".to_string(),
-                    values: vec!["hi".to_string(), "hi".to_string()]
-                },
-                Label {
-                    key: "hi".to_string(),
-                    values: vec!["hi".to_string(), "hi".to_string()]
-                },
-            ]
+
+            let mut myVector: Vec<Label> = vec![];
+
+            if label_1.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
+                myVector.push(Label {
+                    key: label_1.to_string().split("=").nth(0).unwrap().to_string(),
+                    values: vec![label_1.to_string().split("=").nth(1).unwrap().to_string()],
+                })
+            }
+
+            if label_2.to_string().split("=").nth(0).unwrap().to_string() != "".to_string()  {
+                myVector.push(Label {
+                    key: label_2.to_string().split("=").nth(0).unwrap().to_string(),
+                    values: vec![label_2.to_string().split("=").nth(1).unwrap().to_string()],
+                })
+            }
+
+            if label_3.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
+                myVector.push(Label {
+                    key: label_3.to_string().split("=").nth(0).unwrap().to_string(),
+                    values: vec![label_3.to_string().split("=").nth(1).unwrap().to_string()],
+                })
+            }
+
+            if label_4.to_string().split("=").nth(0).unwrap().to_string() != "".to_string()  {
+                myVector.push(Label {
+                    key: label_4.to_string().split("=").nth(0).unwrap().to_string(),
+                    values: vec![label_4.to_string().split("=").nth(1).unwrap().to_string()],
+                })
+            }
+
+            return myVector
         }
+    
+    
