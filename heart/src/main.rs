@@ -6,24 +6,25 @@ extern crate rocket;
 #[macro_use]
 extern crate lazy_static;
 
+mod address;
 mod contact;
+mod csv_parser;
+mod dto;
 mod label;
 mod opportunity;
 mod organisation;
 mod repository;
 mod sample_data;
-mod csv_parser;
-mod dto;
 
 use std::process;
 
 use rocket::State;
 use rocket_contrib::json::Json;
 
-use crate::opportunity::{Opportunity, OpportunityRepository};
-use crate::repository::Repository;
 use crate::csv_parser::csv_parser;
 use crate::label::LabelList;
+use crate::opportunity::{Opportunity, OpportunityRepository};
+use crate::repository::Repository;
 
 #[get("/opportunities")] // TODO: pagination
 fn index(opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> {
@@ -44,5 +45,6 @@ fn main() {
 
     rocket::ignite()
         .manage(OpportunityRepository {})
-        .mount("/", routes![index, find_by_labels]).launch();
+        .mount("/", routes![index, find_by_labels])
+        .launch();
 }

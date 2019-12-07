@@ -1,3 +1,4 @@
+use crate::address::Address;
 use crate::contact::Contact;
 use crate::organisation::Organisation;
 use crate::label::Label;
@@ -11,6 +12,7 @@ use crate::sample_data::OPPORTUNITIES;
 pub struct Opportunity {
     pub title: String,
     pub organisation: Organisation,
+    pub locations: Vec<Address>,
     pub contact: Contact,
     pub labels: Vec<Label>,
 }
