@@ -18,9 +18,11 @@ mod organisation;
 mod repository;
 mod sample_data;
 
+use std::path::Path;
 use std::process;
 
 use rocket::State;
+use rocket::response::NamedFile;
 use rocket_contrib::json::Json;
 
 use crate::csv_parser::csv_parser;
@@ -44,6 +46,11 @@ fn find_by_labels(labels: LabelList, opportunities: State<OpportunityRepository>
     Json(opportunities.find(&label_filters))
 }
 
+#[get("/swagger.yaml")]
+fn swagger_yaml() -> Option<NamedFile> {
+    NamedFile::open(Path::new("static/swagger.yaml")).ok()
+}
+
 // TODO: presumably our answers are missing proper encoding/chartes headers
 
 fn main() {
@@ -57,10 +64,8 @@ fn main() {
         }
     };
 
-    // convert Vec<Opportunity> into Opportunity
-
     rocket::ignite()
         .manage(csv_data)
-        .mount("/", routes![index, find_by_labels])
+        .mount("/", routes![index, find_by_labels, swagger_yaml])
         .launch();
 }

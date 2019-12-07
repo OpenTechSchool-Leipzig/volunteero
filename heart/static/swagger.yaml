@@ -1,0 +1,66 @@
+swagger: "2.0"
+info:
+  description: "Volunteero Heart is an open database for volunteering opportunities."
+  version: "0.1"
+  title: "Volunteero Heart"
+host: "volunteero.noidea.info"
+basePath: "/"
+schemes:
+- "https"
+paths:
+  /opportunities:
+    get:
+      summary: "Find volunteering opportunities"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "labels"
+        in: "query"
+        description: "Labels that need to be considered for filter. Filters for different keys will be combined using AND, filters for same keys using OR. E.g. `sport:soccer,sport:chess,category:sleep` will result in all opportunities with category=sleep and (sport=soccer or sport=chess)."
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Opportunity"
+        404:
+          description: "No opportunities found"
+definitions:
+  Opportunity:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      organisation:
+        type: "object"
+        properties:
+          id:
+            type: "string"
+          name:
+            type: "string"
+      locations:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+            street:
+              type: "string"
+            house_number:
+              type: "string"
+            postcode:
+              type: "string"
+            city:
+              type: "string"
+      labels:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            key:
+              type: "string"
+            value:
+              type: "string"
