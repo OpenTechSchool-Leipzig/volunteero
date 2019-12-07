@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{title}}</h1>
+    <h1>{{job_description}}</h1>
     <span>{{organisation.name}}</span>
     <div v-if="hasContactInfo">
       {{contact.name}}
@@ -22,7 +22,7 @@
 <script>
 export default {
   props: {
-    title: String,
+    job_description: String,
     organisation: Object,
     contact: Object,
     labels: Array
