@@ -7,6 +7,7 @@
         <ul v-if="showResults">
           <li v-for="(cat, key) in chosenCategories" :key="key">{{ cat }}</li>
         </ul>
+        <ResultsList />
       </div>
       <button
         @click.prevent="emitClose"
@@ -19,9 +20,11 @@
 
 <script>
 import QuestionList from "./QuestionsList";
+import ResultsList from "./ResultsList";
 export default {
   components: {
-    QuestionList
+    QuestionList,
+    ResultsList
   },
   data() {
     return {
