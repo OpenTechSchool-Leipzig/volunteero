@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="volunteero">
     <Bot />
     <Modal v-show="showModal" @closeModal="showModal = false" />
   </div>
@@ -18,3 +18,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.volunteero * {
+  box-sizing: border-box;
+}
+</style>
