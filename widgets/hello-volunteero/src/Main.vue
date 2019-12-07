@@ -1,6 +1,6 @@
 <template>
   <div class="volunteero">
-    <Bot @showModal="showModal = true" />
+    <Bot @showModal="showModal = true" :class="position" />
     <Modal v-show="showModal" @closeModal="showModal = false" />
   </div>
 </template>
@@ -11,6 +11,7 @@ import Modal from "@/components/Modal";
 
 export default {
   components: { Bot, Modal },
+  props: ["position"],
   data() {
     return {
       showModal: false
