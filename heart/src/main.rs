@@ -1,5 +1,5 @@
 #![allow(dead_code)]
-#![feature(proc_macro_hygiene, decl_macro)]
+#![feature(proc_macro_hygiene, decl_macro, type_ascription)]
 
 #[macro_use]
 extern crate rocket;
@@ -23,21 +23,26 @@ use rocket_contrib::json::Json;
 use crate::opportunity::{Opportunity, OpportunityRepository};
 use crate::repository::Repository;
 use crate::csv_parser::csv_parser;
+use crate::label::LabelList;
 
 #[get("/opportunities")] // TODO: pagination
 fn index(opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> {
     Json(opportunities.fetch_all())
 }
 
-fn main() {
-    rocket::ignite()
-        .manage(OpportunityRepository {})
-        .mount("/", routes![index]).launch();
-    // let or = OpportunitiesRepository::new();
-//    rocket::ignite().mount("/", routes![index]).launch();
+/// GET /opportunities?labels=Sportart:Fußball,Kategorie:Vereinsarbeit,Kategorie:Vorstand
+#[get("/opportunities?<labels>")]
+fn find_by_labels(labels: LabelList) -> Json<String> {
+    Json(format!("{:?}", labels))
+}
 
+fn main() {
     if let Err(err) = csv_parser() {
         println!("error running example: {}", err);
         process::exit(1);
     }
+
+    rocket::ignite()
+        .manage(OpportunityRepository {})
+        .mount("/", routes![index, find_by_labels]).launch();
 }
