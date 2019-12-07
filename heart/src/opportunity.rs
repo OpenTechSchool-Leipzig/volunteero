@@ -18,7 +18,7 @@ use crate::sample_data::OPPORTUNITIES;
 
 #[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct Opportunity {
-    pub jobdescription: String,
+    pub job_description: String,
     pub organisation: Organisation,
     pub locations: Vec<Address>,
     pub contact: Contact,
@@ -172,7 +172,7 @@ impl TryFrom<DTO> for Opportunity {
     fn try_from(raw_data: DTO) -> Result<Self, Self::Error> {
         // TODO: validate
         Ok(Self { 
-                jobdescription: raw_data.jobdescription, 
+                job_description: raw_data.job_description, 
                 organisation: Organisation { 
                     id: raw_data.organisation_id,
                     name: raw_data.organisation_name,

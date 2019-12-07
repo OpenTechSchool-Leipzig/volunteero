@@ -7,7 +7,7 @@ use crate::label::Label;
 pub struct DTO {
     pub organisation_id: String,
     pub organisation_name: String,
-    pub jobdescription: String,
+    pub job_description: String,
     pub contact_name: String,
     pub contact_email: String,
     pub contact_phone: String,
