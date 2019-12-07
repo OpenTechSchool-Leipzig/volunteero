@@ -1,6 +1,6 @@
 <template>
   <li class="question">
-    <span>{{ text }}</span>
+    <div class="question-text">{{ text }}</div>
 
     <button
       @click="emitChoice('yes')"
@@ -44,12 +44,21 @@ export default {
 </script>
 
 <style lang="scss">
+.question-text {
+    font-size: 1.3rem;
+  text-align: center;
+  padding: 1rem;
+}
 .choice-btn {
+  font-size: 1.7rem;
+  width: 48%;
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border: solid transparent;
+  border-radius: 0.3rem;
+  background-color: grey;
 
-  &:not(:last-child) {
-    margin-right: 0.25rem;
+  &:last-child {
+    margin-left: 4%;
   }
   &.selected-no {
     background-color: red;
@@ -62,11 +71,13 @@ export default {
   transition: all 0.3s;
   &.v-enter,
   &.v-leave-to {
-    transform: translateX(-120%);
+    transform: translateY(200%);
+    opacity:15%;
   }
   &.v-enter-to,
   &.v-leave {
-    transform: translateX(0);
+    transform: translateY(0);
+    opacity: 100%;
   }
   &.v-enter-active,
   &.v-leave-active,
