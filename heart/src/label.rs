@@ -65,11 +65,8 @@ mod tests {
             })
         );
         assert_eq!(
-            Label::try_from("foo:bar"),
-            Ok(Label {
-                key: "foo".into(),
-                values: vec!["bar".into()]
-            })
+            Label::try_from("foo=bar"),
+            Err("invalid label format: foo=bar".into()),
         );
     }
 
