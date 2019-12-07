@@ -77,6 +77,7 @@ export default {
     list-style: none;
     padding: 0;
     width: 100%;
+    margin-bottom: 60px;
   }
   h2 {
     font-size: 1.3rem;

@@ -1,5 +1,5 @@
 <template>
-  <li class="question" v-if="!choice">
+  <li class="question">
     <div class="question-text">{{ text }}</div>
     <button @click="emitChoice('yes')" class="choice-btn" :disabled="choice">
       ja

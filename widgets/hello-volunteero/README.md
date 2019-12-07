@@ -1,5 +1,10 @@
 # hello-volunteero
 
+A simple widget to provide some interaction for possible volunteers.
+It is powered by Vue JS and Web components and can be included in every HTML project.
+
+##
+
 ## Project setup
 
 ```
