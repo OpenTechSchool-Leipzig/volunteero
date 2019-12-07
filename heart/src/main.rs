@@ -3,6 +3,7 @@
 
 #[macro_use]
 extern crate rocket;
+extern crate reqwest;
 #[macro_use]
 extern crate lazy_static;
 
@@ -10,6 +11,7 @@ mod address;
 mod contact;
 mod csv_parser;
 mod dto;
+mod geocoder;
 mod label;
 mod opportunity;
 mod organisation;
@@ -25,7 +27,6 @@ use crate::csv_parser::csv_parser;
 use crate::label::LabelList;
 use crate::opportunity::{Opportunity, OpportunityRepository, OpportunityFilter};
 use crate::repository::Repository;
-use crate::opportunity::OpportunityFilter::LabelFilter;
 
 #[get("/opportunities")] // TODO: pagination
 fn index(opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> {
