@@ -1,5 +1,5 @@
 <template>
-  <div class="bot">
+  <div class="bot" @click.prevent="openModal">
     <div class="message">Lust auf Ehrenamt?</div>
     <LamaSvg />
   </div>
@@ -9,7 +9,12 @@
 import LamaSvg from "@/svg/Lama";
 
 export default {
-  components: { LamaSvg }
+  components: { LamaSvg },
+  methods: {
+    openModal() {
+      this.$emit("showModal");
+    }
+  }
 };
 </script>
 
@@ -17,6 +22,7 @@ export default {
 .bot {
   width: 300px;
   height: 300px;
+  cursor: pointer;
 }
 .message {
   color: black;
