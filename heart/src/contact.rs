@@ -18,8 +18,8 @@ pub enum ContactOption {
 
 #[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct EMailAddress {
-    pub value: String,
-    pub note: Option<String>
+    value: String,
+    note: Option<String>
 }
 
 impl TryFrom<(String, String)> for EMailAddress {
@@ -33,8 +33,8 @@ impl TryFrom<(String, String)> for EMailAddress {
 
 #[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct PhoneNumber {
-    pub value: String,
-    pub note: Option<String>
+    value: String,
+    note: Option<String>
 }
 
 impl TryFrom<(String, String)> for PhoneNumber {
