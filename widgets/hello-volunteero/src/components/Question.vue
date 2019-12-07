@@ -1,5 +1,6 @@
 <template>
   <li class="question">
+    <h2>Welche Fähigkeiten kannst du einbringen?</h2>
     <div class="question-text">{{ text }}</div>
 
     <button
@@ -40,11 +41,6 @@ export default {
 </script>
 
 <style lang="scss">
-.question-text {
-  font-size: 1.3rem;
-  text-align: center;
-  padding: 1rem;
-}
 .choice-btn {
   font-size: 1rem;
   width: 48%;
@@ -64,6 +60,7 @@ export default {
   }
 }
 .question {
+  text-align: center;
   transition: all 0.3s;
   &.v-enter,
   &.v-leave-to {
@@ -79,6 +76,13 @@ export default {
   &.v-leave-active,
   &.v-move {
     transition: all 0.5s ease-out;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  .question-text {
+    font-size: 1.2rem;
+    padding: 1rem;
   }
 }
 </style>
