@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import LamaSvg from "@/components/svg/Lama.vue";
+import LamaSvg from "@/svg/Lama.vue";
 
 export default {
   components: { LamaSvg }
