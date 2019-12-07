@@ -171,25 +171,25 @@ impl TryFrom<DTO> for Opportunity {
     fn try_from(raw_data: DTO) -> Result<Self, Self::Error> {
         // TODO: validate
         Ok(Self { 
-            job_description: raw_data.job_description, 
+            job_description: raw_data.job_description.trim().to_string(), 
                 organisation: Organisation { 
                     id: raw_data.organisation_id,
-                    name: raw_data.organisation_name,
+                    name: raw_data.organisation_name.trim().to_string(),
                 },
                 locations: vec![Address {
-                    name: raw_data.address_1_name,
-                    street: raw_data.address_1_street,
-                    house_number: raw_data.address_1_housenr,
-                    postcode: raw_data.address_1_postcode,
-                    city: raw_data.address_1_city,
+                    name: raw_data.address_1_name.trim().to_string(),
+                    street: raw_data.address_1_street.trim().to_string(),
+                    house_number: raw_data.address_1_housenr.trim().to_string(),
+                    postcode: raw_data.address_1_postcode.trim().to_string(),
+                    city: raw_data.address_1_city.trim().to_string(),
                 }]
                 ,
                 contact: Contact {
                     name: raw_data.contact_name,
                     options: extract_options(
-                        raw_data.contact_email, 
-                        raw_data.contact_phone, 
-                        raw_data.contact_mobile, 
+                        raw_data.contact_email.trim().to_string(), 
+                        raw_data.contact_phone.trim().to_string(), 
+                        raw_data.contact_mobile.trim().to_string(), 
                     )},
                 labels:  extract_labels(
                         raw_data.label_1, 
@@ -226,28 +226,28 @@ impl TryFrom<DTO> for Opportunity {
 
             if label_1.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
                 my_vector.push(Label {
-                    key: label_1.to_string().split("=").nth(0).unwrap().to_string(),
+                    key: label_1.to_string().split("=").nth(0).unwrap().trim().to_string(),
                     values: vec![label_1.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
 
             if label_2.to_string().split("=").nth(0).unwrap().to_string() != "".to_string()  {
                 my_vector.push(Label {
-                    key: label_2.to_string().split("=").nth(0).unwrap().to_string(),
+                    key: label_2.to_string().split("=").nth(0).unwrap().trim().to_string(),
                     values: vec![label_2.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
 
-            if label_3.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
+            if label_3.to_string().split("=").nth(0).unwrap().to_string() != "".to_string().trim() {
                 my_vector.push(Label {
-                    key: label_3.to_string().split("=").nth(0).unwrap().to_string(),
+                    key: label_3.to_string().split("=").nth(0).unwrap().trim().to_string(),
                     values: vec![label_3.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
 
             if label_4.to_string().split("=").nth(0).unwrap().to_string() != "".to_string()  {
                 my_vector.push(Label {
-                    key: label_4.to_string().split("=").nth(0).unwrap().to_string(),
+                    key: label_4.to_string().split("=").nth(0).unwrap().trim().to_string(),
                     values: vec![label_4.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
