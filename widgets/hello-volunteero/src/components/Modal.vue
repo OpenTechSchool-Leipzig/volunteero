@@ -15,10 +15,13 @@
           @resetResults="onResetResults"
           :showResults="showResults"
         />
-        <ul v-if="showResults">
-          <li v-for="(cat, key) in chosenCategories" :key="key">{{ cat }}</li>
-        </ul>
-        <ResultsList v-if="showResults" />
+        <p v-if="showResults && chosenCategories.length === 0">
+          Ooops probiers noch mal ;)
+        </p>
+        <ResultsList
+          v-if="showResults && chosenCategories.length"
+          :categories="chosenCategories"
+        />
       </div>
     </div>
   </transition>
