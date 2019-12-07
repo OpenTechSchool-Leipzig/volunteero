@@ -17,11 +17,12 @@ use crate::opportunity::{Opportunity, OpportunityRepository};
 use crate::repository::Repository;
 
 #[get("/opportunities")] // TODO: pagination
-fn index<'a>(opportunities: State<&'a OpportunityRepository>) -> Json<Vec<&'a Opportunity<'a>>> {
+fn index(opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> {
     Json(opportunities.fetch_all())
 }
 
 fn main() {
-    // let or = OpportunitiesRepository::new();
-    rocket::ignite().mount("/", routes![index]).launch();
+    rocket::ignite()
+        .manage(OpportunityRepository {})
+        .mount("/", routes![index]).launch();
 }

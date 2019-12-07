@@ -7,10 +7,10 @@ use crate::repository::Repository;
 use serde::Serialize;
 
 #[derive(Debug, PartialEq, Serialize)]
-pub struct Opportunity<'a> {
+pub struct Opportunity {
     title: String,
-    organisation: &'a Organisation,
-    contact: &'a Contact,
+    organisation: Organisation,
+    contact: Contact,
     labels: Vec<Label>,
 }
 
@@ -21,8 +21,8 @@ pub struct Opportunity<'a> {
 #[derive(Debug, PartialEq)]
 pub struct OpportunityRepository {}
 
-impl<'a> Repository<Opportunity<'a>> for OpportunityRepository {
-    fn fetch_all(&self) -> Vec<&Opportunity<'a>> {
+impl Repository<Opportunity> for OpportunityRepository {
+    fn fetch_all(&self) -> Vec<Opportunity> {
         vec![]
     }
 }
