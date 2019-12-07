@@ -57,6 +57,8 @@ export default {
   padding: 0.75rem;
   top: 20%;
   position: fixed;
+  background-color: white;
+  margin: auto;
 }
 
 .modal-enter,

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Bot />
-    <Modal v-show="showModal" />
+    <Modal v-show="showModal" @closeModal="showModal = false" />
   </div>
 </template>
 
