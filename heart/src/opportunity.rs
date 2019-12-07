@@ -65,7 +65,7 @@ impl OpportunityRepository {
         let values = &filter_label.values;
         values
             .into_iter()
-            .all(|l|
+            .any(|l|
                 opportunity.get_labels_for_key(&filter_label.key).contains(&l)
             )
     }
@@ -102,6 +102,26 @@ mod tests {
             OpportunityFilter::LabelFilter(Label {
                 key: "Aufgabenfeld".to_string(),
                 values: vec!["Vereinsleben".to_string(), "Trainigsbetrieb".to_string()],
+            })
+        ];
+
+        let actual = repository.find(
+            &filter
+        );
+
+        assert_eq!(
+            actual,
+            OPPORTUNITIES.clone()
+        )
+    }
+
+    #[test]
+    fn filter_opportunities_by_none_partially_existing_label() {
+        let repository = OpportunityRepository {};
+        let filter = vec![
+            OpportunityFilter::LabelFilter(Label {
+                key: "Sportart".to_string(),
+                values: vec!["Eishockey".to_string(), "Fußball".to_string()],
             })
         ];
 
