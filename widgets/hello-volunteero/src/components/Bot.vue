@@ -1,5 +1,5 @@
 <template>
-  <div class="bot">
+  <div class="bot" @click.prevent="openModal">
     <div class="speech-bubble">Lust auf Ehrenamt?</div>
     <LamaSvg />
   </div>
@@ -9,7 +9,12 @@
 import LamaSvg from "@/svg/Lama";
 
 export default {
-  components: { LamaSvg }
+  components: { LamaSvg },
+  methods: {
+    openModal() {
+      this.$emit("showModal");
+    }
+  }
 };
 </script>
 
@@ -17,6 +22,7 @@ export default {
 .bot {
   width: 150px;
   height: 200px;
+  cursor: pointer;
 }
 .speech-bubble {
 	position: relative;

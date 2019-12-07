@@ -3,7 +3,7 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <!--  add conent here -->
+        <QuestionList />
       </div>
       <button
         @click.prevent="emitClose"
@@ -15,7 +15,11 @@
 </template>
 
 <script>
+import QuestionList from "./QuestionsList";
 export default {
+  components: {
+    QuestionList
+  },
   methods: {
     emitClose() {
       this.$emit("closeModal");
@@ -58,7 +62,8 @@ export default {
   top: 20%;
   position: fixed;
   background-color: white;
-  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .modal-enter,
