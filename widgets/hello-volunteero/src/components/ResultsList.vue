@@ -11,53 +11,21 @@ export default {
   components: {
     Result
   },
+  mounted() {
+    fetch("https://volunteero.noidea.info/opportunities")
+      .then(res => {
+        console.log(res);
+        if (res.response.data) {
+          this.results = res.response.data;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
   data() {
     return {
-      results: [
-        {
-          title: "Trainer",
-          organisation: {
-            id: "42",
-            name: "Fußball Verein Leipzig e.V."
-          },
-          locations: [
-            {
-              city: "Leipzig",
-              postcode: "04229",
-              house_number: "37 F",
-              street: "Musterallee",
-              name: "Kaninchenrennbahn"
-            }
-          ],
-          contact: {
-            name: "Herr Müller",
-            options: [
-              {
-                email: {
-                  value: "mueller@fussball-leipzig.de",
-                  note: null
-                }
-              },
-              {
-                phone: {
-                  value: "+4927182818284",
-                  note: "Nur bis 18:00Uhr"
-                }
-              }
-            ]
-          },
-          labels: [
-            {
-              key: "Sportart",
-              values: ["Fußball"]
-            },
-            {
-              key: "Aufgabenfeld",
-              values: ["Vereinsleben", "Trainigsbetrieb"]
-            }
-          ]
-        }
-      ]
+      results: []
     };
   }
 };
