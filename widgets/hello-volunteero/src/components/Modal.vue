@@ -7,7 +7,7 @@
         <ul v-if="showResults">
           <li v-for="(cat, key) in chosenCategories" :key="key">{{ cat }}</li>
         </ul>
-        <ResultsList />
+        <ResultsList v-if="showResults" />
       </div>
       <button
         @click.prevent="emitClose"
