@@ -3,7 +3,7 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <QuestionList />
+        <QuestionList v-if="!showResults" @setResults="onSetResults" />
         <ResultsList />
       </div>
       <button @click.prevent="emitClose" class="modal-close" aria-label="close"></button>
@@ -19,6 +19,12 @@ export default {
     QuestionList,
     ResultsList
   },
+  data() {
+    return {
+      showResults: false,
+      chosenCategories: []
+    };
+  },
   methods: {
     emitClose() {
       this.$emit("closeModal");
@@ -27,6 +33,10 @@ export default {
       if (event.which === 27) {
         this.emitClose();
       }
+    },
+    onSetResults(cats) {
+      this.showResults = true;
+      this.chosenCategories = cats;
     }
   },
   beforeMount() {

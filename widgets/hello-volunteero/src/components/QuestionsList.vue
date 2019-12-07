@@ -1,23 +1,26 @@
 <template>
-  <ul>
-    <QuestionItem
+  <transition-group tag="ul">
+    <Question
       v-for="talent in talentObjects"
       :key="talent.id"
       v-bind="talent"
+      @yes="choseCategory"
+      @no="addQuestion"
     />
-  </ul>
+  </transition-group>
 </template>
 
 <script>
 import talents from "../Talentkarte.json";
-import QuestionItem from "@/components/Question.vue";
+import Question from "@/components/Question.vue";
 export default {
-  compoments: {
-    QuestionItem
+  components: {
+    Question
   },
   data() {
     return {
-      selectedTalents: []
+      selectedTalents: [],
+      chosenCategories: []
     };
   },
   computed: {
@@ -27,7 +30,24 @@ export default {
   },
   methods: {
     getRandId() {
-      return Math.round(Math.random() * 21);
+      //make sure to get one talent for each category
+      return 1 + Math.round(Math.random() * (talents.length - 1));
+    },
+    choseCategory(cats) {
+      this.chosenCategories = [...this.chosenCategories, ...cats];
+      this.addQuestion();
+    },
+    addQuestion() {
+      if (this.selectedTalents.length < 3) {
+        let newId = this.getRandId();
+        while (this.selectedTalents.includes(newId)) {
+          newId = this.getRandId();
+        }
+        this.selectedTalents = [...this.selectedTalents, newId];
+      } else {
+        // TODO: remove duplicates form chosenCategories Array
+        this.$emit("setResults", this.chosenCategories);
+      }
     }
   },
   mounted() {
