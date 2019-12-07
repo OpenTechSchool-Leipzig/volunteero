@@ -48,7 +48,10 @@ fn find_by_labels(labels: LabelList, opportunities: State<OpportunityRepository>
 
 fn main() {
     let csv_data = match csv_parser() {
-        Err(_) => process::exit(1),
+        Err(_) => {
+            println!("shit, exiting!");
+            process::exit(1);
+        },
         Ok(result) => OpportunityRepository {
             data : result
         }
