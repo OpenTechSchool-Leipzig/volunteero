@@ -3,20 +3,13 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <QuestionList
-          @setResults="onSetResults"
-          @resetResults="onResetResults"
-        />
+        <button @click.prevent="emitClose" class="modal-close" aria-label="close">x</button>
+        <QuestionList @setResults="onSetResults" @resetResults="onResetResults" />
         <ul v-if="showResults">
           <li v-for="(cat, key) in chosenCategories" :key="key">{{ cat }}</li>
         </ul>
         <ResultsList v-if="showResults" />
       </div>
-      <button
-        @click.prevent="emitClose"
-        class="modal-close"
-        aria-label="close"
-      ></button>
     </div>
   </transition>
 </template>
@@ -76,12 +69,19 @@ export default {
   bottom: 0;
 }
 
+.modal-close {
+  border: 0px;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 10px;
+}
+
 .modal-content {
   border-radius: 0.5rem;
   min-height: 300px;
   width: 100%;
   max-width: 500px;
-  padding: 0.75rem;
+  padding: 1rem;
   top: 20%;
   position: fixed;
   background-color: white;
