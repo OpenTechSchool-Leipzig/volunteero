@@ -11,17 +11,28 @@ export default {
   components: {
     Result
   },
-  mounted() {
-    fetch("https://volunteero.noidea.info/opportunities")
-      .then(res => {
-        console.log(res);
-        if (res.response.data) {
-          this.results = res.response.data;
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  props: {
+    category: {
+      default: () => []
+    }
+  },
+  async mounted() {
+    if (this.category) {
+      return;
+    }
+
+    const categories = this.category.join(",category:");
+    try {
+      const res = await fetch(
+        `https://volunteero.noidea.info/opportunities?labels=category:${categories}`
+      );
+      if (res.status === 200) {
+        const json = await res.json();
+        this.results = json;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
   data() {
     return {
