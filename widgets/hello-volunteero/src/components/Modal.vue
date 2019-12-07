@@ -4,21 +4,20 @@
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
         <QuestionList />
+        <ResultsList />
       </div>
-      <button
-        @click.prevent="emitClose"
-        class="modal-close"
-        aria-label="close"
-      ></button>
+      <button @click.prevent="emitClose" class="modal-close" aria-label="close"></button>
     </div>
   </transition>
 </template>
 
 <script>
 import QuestionList from "./QuestionsList";
+import ResultsList from "./ResultsList";
 export default {
   components: {
-    QuestionList
+    QuestionList,
+    ResultsList
   },
   methods: {
     emitClose() {
