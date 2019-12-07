@@ -9,7 +9,7 @@
         @no="addQuestion"
       />
     </transition-group>
-    <button>
+    <button @click="resetQuestions">
       Neu Fragen gefällig?
     </button>
   </div>
@@ -53,6 +53,9 @@ export default {
         // remove duplicates form chosenCategories through creating a new Set from the Array and parse it back using the spread operator.
         this.$emit("setResults", [...new Set(this.chosenCategories)]);
       }
+    },
+    resetQuestions() {
+      this.selectedTalents = [this.getRandId()];
     }
   },
   mounted() {
