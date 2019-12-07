@@ -1,7 +1,7 @@
 use serde::Serialize;
 
-#[derive(Debug, PartialEq, Serialize)]
+#[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct Organisation {
-    id: String,
-    name: String,
+    pub id: String,
+    pub name: String,
 }
