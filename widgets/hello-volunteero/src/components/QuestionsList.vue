@@ -57,6 +57,8 @@ export default {
     },
     resetQuestions() {
       this.selectedTalents = [this.getRandId()];
+      this.chosenCategories = [];
+      this.$emit("resetResults");
     }
   },
   mounted() {
@@ -68,14 +70,34 @@ export default {
 
 <style lang="scss">
 .questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   ul {
     list-style: none;
     padding: 0;
+    width: 100%;
   }
   h2 {
     font-size: 1.3rem;
     color: #009ee0;
     color: var(--primary-color);
+  }
+  button {
+    font-size: 1rem;
+    width: 48%;
+    padding: 0.5rem;
+    border: 1px solid #009ee0;
+    border-color: var(--primary-color);
+    border-radius: 0.3rem;
+    background-color: transparent;
+    transition: all 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: #009ee0;
+      background-color: var(--primary-color);
+    }
   }
 }
 </style>

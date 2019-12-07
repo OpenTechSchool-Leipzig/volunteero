@@ -3,7 +3,10 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <QuestionList @setResults="onSetResults" />
+        <QuestionList
+          @setResults="onSetResults"
+          @resetResults="onResetResults"
+        />
         <ul v-if="showResults">
           <li v-for="(cat, key) in chosenCategories" :key="key">{{ cat }}</li>
         </ul>
@@ -44,6 +47,10 @@ export default {
     onSetResults(cats) {
       this.showResults = true;
       this.chosenCategories = cats;
+    },
+    onResetResults() {
+      this.showResults = false;
+      this.chosenCategories = [];
     }
   },
   beforeMount() {
@@ -80,6 +87,7 @@ export default {
   background-color: white;
   left: 50%;
   transform: translateX(-50%);
+  overflow: hidden;
 }
 
 .modal-enter,
@@ -90,7 +98,7 @@ export default {
   }
   .modal-content,
   .modal-close {
-    transform: translateY(-70vh);
+    transform: translate(-50%, -70vh);
   }
 }
 

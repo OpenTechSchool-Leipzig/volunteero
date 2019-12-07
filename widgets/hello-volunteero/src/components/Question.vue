@@ -1,20 +1,10 @@
 <template>
-  <li class="question">
+  <li class="question" v-if="!choice">
     <div class="question-text">{{ text }}</div>
-    <button
-      @click="emitChoice('yes')"
-      class="choice-btn"
-      :class="[choice === 'yes' ? 'selected-yes' : '']"
-      :disabled="choice"
-    >
+    <button @click="emitChoice('yes')" class="choice-btn" :disabled="choice">
       ja
     </button>
-    <button
-      class="choice-btn"
-      @click="emitChoice('no')"
-      :class="[choice === 'no' ? 'selected-no' : '']"
-      :disabled="choice"
-    >
+    <button class="choice-btn" @click="emitChoice('no')" :disabled="choice">
       nein
     </button>
   </li>
@@ -47,31 +37,37 @@ export default {
   font-size: 1rem;
   width: 48%;
   padding: 0.5rem;
-  border: 1px solid black;
+  border: 1px solid #009ee0;
+  border-color: var(--primary-color);
   border-radius: 0.3rem;
-  background-color: white;
+  background-color: transparent;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #009ee0;
+    background-color: var(--primary-color);
+  }
 
   &:last-child {
     margin-left: 4%;
-  }
-  &.selected-no {
-    background-color: red;
-  }
-  &.selected-yes {
-    background-color: green;
   }
 }
 .question {
   text-align: center;
   transition: all 0.3s;
-  &.v-enter,
+  &.v-enter {
+    transform: translateX(200%);
+    opacity: 15%;
+  }
+
   &.v-leave-to {
-    transform: translateY(200%);
+    transform: translateX(-200%);
     opacity: 15%;
   }
   &.v-enter-to,
   &.v-leave {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 100%;
   }
   &.v-enter-active,
