@@ -50,6 +50,10 @@ export default {
 }
 .question {
   text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
   transition: all 0.3s;
   &.v-enter {
     transform: translateX(200%);

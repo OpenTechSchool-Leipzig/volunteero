@@ -1,10 +1,14 @@
 <template>
   <div>
-    <Result
-      v-for="result in results"
-      :key="result.organisation.id"
-      v-bind="result"
-    />
+    <button @click="currentSlide--" :disabled="currentSlide === 0">Prev</button>
+    <button @click="currentSlide++" :disabled="currentSlide === results.length">
+      Next
+    </button>
+    <div class="result-container">
+      <transition>
+        <Result v-if="activeResult" :key="currentSlide" v-bind="activeResult" />
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -18,6 +22,18 @@ export default {
   props: {
     categories: {
       default: () => []
+    }
+  },
+  data() {
+    return {
+      results: [],
+      currentSlide: 0
+    };
+  },
+  computed: {
+    activeResult() {
+      if (!this.results) return null;
+      return this.results[this.currentSlide];
     }
   },
   async mounted() {
@@ -37,13 +53,13 @@ export default {
     } catch (error) {
       console.log(error);
     }
-  },
-  data() {
-    return {
-      results: []
-    };
   }
 };
 </script>
-
-<style></style>
+<style lang="scss">
+.result-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+</style>
