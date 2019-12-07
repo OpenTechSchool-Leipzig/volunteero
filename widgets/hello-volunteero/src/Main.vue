@@ -1,6 +1,11 @@
 <template>
   <div class="volunteero">
-    <Bot @showModal="showModal = true" :class="botPosition" :style="botStyle" />
+    <Bot
+      @showModal="showModal = true"
+      :class="botPosition"
+      :style="botStyle"
+      :primaryColor="primaryColor"
+    />
     <Modal v-show="showModal" @closeModal="showModal = false" />
   </div>
 </template>
@@ -11,7 +16,7 @@ import Modal from "@/components/Modal";
 
 export default {
   components: { Bot, Modal },
-  props: ["botPosition", "botSize"],
+  props: ["botPosition", "botSize", "primaryColor"],
   data() {
     return {
       showModal: false

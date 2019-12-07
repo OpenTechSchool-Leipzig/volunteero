@@ -7,17 +7,13 @@
       class="choice-btn"
       :class="[choice === 'yes' ? 'selected-yes' : '']"
       :disabled="choice"
-    >
-      ja
-    </button>
+    >ja</button>
     <button
       class="choice-btn"
       @click="emitChoice('no')"
       :class="[choice === 'no' ? 'selected-no' : '']"
       :disabled="choice"
-    >
-      nein
-    </button>
+    >nein</button>
   </li>
 </template>
 
@@ -45,17 +41,17 @@ export default {
 
 <style lang="scss">
 .question-text {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
   text-align: center;
   padding: 1rem;
 }
 .choice-btn {
-  font-size: 1.7rem;
+  font-size: 1rem;
   width: 48%;
   padding: 0.5rem;
-  border: solid transparent;
+  border: 1px solid black;
   border-radius: 0.3rem;
-  background-color: grey;
+  background-color: white;
 
   &:last-child {
     margin-left: 4%;
@@ -72,7 +68,7 @@ export default {
   &.v-enter,
   &.v-leave-to {
     transform: translateY(200%);
-    opacity:15%;
+    opacity: 15%;
   }
   &.v-enter-to,
   &.v-leave {

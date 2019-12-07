@@ -1,6 +1,6 @@
 <template>
   <div class="bot" @click.prevent="openModal">
-    <div class="speech-bubble">Lust auf Ehrenamt?</div>
+    <div class="speech-bubble" :style="speechBubble">Lust auf Ehrenamt?</div>
     <LamaSvg />
   </div>
 </template>
@@ -13,6 +13,12 @@ export default {
   methods: {
     openModal() {
       this.$emit("showModal");
+    }
+  },
+  props: ["primaryColor"],
+  computed: {
+    speechBubble() {
+      return `background-color: ${this.primaryColor}`;
     }
   }
 };
@@ -31,7 +37,6 @@ export default {
   text-align: center;
   padding: 20px;
   margin-bottom: 5px;
-  background: rgb(0, 110, 201);
   border-radius: 0.4em;
   width: 100%;
 }
