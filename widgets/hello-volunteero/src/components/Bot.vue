@@ -23,7 +23,6 @@ export default {
   width: 150px;
   cursor: pointer;
 }
-
 .speech-bubble {
   position: relative;
   color: white;
@@ -37,7 +36,6 @@ export default {
   border-radius: 0.4em;
   width: 100%;
 }
-
 .speech-bubble:after {
   content: "";
   position: absolute;
@@ -51,5 +49,15 @@ export default {
   border-left: 0;
   margin-left: -0.312em;
   margin-bottom: -0.8em;
+}
+.fixed-right {
+  position: fixed;
+  right: 10px;
+  bottom: -30px;
+}
+.fixed-left {
+  position: fixed;
+  left: 10px;
+  bottom: -30px;
 }
 </style>

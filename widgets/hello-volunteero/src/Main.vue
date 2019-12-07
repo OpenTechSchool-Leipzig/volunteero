@@ -1,6 +1,6 @@
 <template>
-  <div class="volunteero" :class="position">
-    <Bot @showModal="showModal = true" />
+  <div class="volunteero">
+    <Bot @showModal="showModal = true" :class="position" />
     <Modal v-show="showModal" @closeModal="showModal = false" />
   </div>
 </template>
@@ -23,17 +23,5 @@ export default {
 <style>
 .volunteero * {
   box-sizing: border-box;
-}
-.fixed-right {
-  position: absolute;
-  position: fixed;
-  right: 10px;
-  bottom: -30px;
-}
-.fixed-left {
-  position: absolute;
-  position: fixed;
-  left: 10px;
-  bottom: -30px;
 }
 </style>
