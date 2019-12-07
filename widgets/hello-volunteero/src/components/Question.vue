@@ -58,4 +58,20 @@ export default {
     background-color: green;
   }
 }
+.question {
+  transition: all 0.3s;
+  &.v-enter,
+  &.v-leave-to {
+    transform: translateX(-120%);
+  }
+  &.v-enter-to,
+  &.v-leave {
+    transform: translateX(0);
+  }
+  &.v-enter-active,
+  &.v-leave-active,
+  &.v-move {
+    transition: all 0.5s ease-out;
+  }
+}
 </style>
