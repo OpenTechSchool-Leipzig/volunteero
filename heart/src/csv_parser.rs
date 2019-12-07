@@ -1,16 +1,19 @@
+use std::convert::TryInto;
 use std::error::Error;
 use std::io;
 
-use crate::dto::DTO;
 
-pub fn csv_parser() -> Result<(), Box<dyn Error>> {
+use crate::dto::DTO;
+use crate::opportunity::Opportunity;
+
+pub fn csv_parser() -> Result<Vec<Opportunity>, Box<dyn Error>> {
   let mut rdr = csv::Reader::from_reader(io::stdin());
+  let mut opportunities: Vec<Opportunity> = Vec::new();
+
   for result in rdr.deserialize() {
-      // Notice that we need to provide a type hint for automatic
-      // deserialization.
-      println!("i am here!");
+
       let record: DTO = result?;
-      println!("{:?}", record);
+      opportunities.push(record.try_into().unwrap());
   }
-  Ok(())
+  Ok(opportunities)
 }
