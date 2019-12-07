@@ -20,6 +20,15 @@ export default {
             id: "42",
             name: "Fußball Verein Leipzig e.V."
           },
+          locations: [
+            {
+              city: "Leipzig",
+              postcode: "04229",
+              house_number: "37 F",
+              street: "Musterallee",
+              name: "Kaninchenrennbahn"
+            }
+          ],
           contact: {
             name: "Herr Müller",
             options: [
