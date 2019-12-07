@@ -8,6 +8,7 @@ edition = "2018"
 
 [dependencies]
 rocket = "0.4.2"
+csv = "1.1"
 serde = { version = "1.0.103", features = ["derive"] }
 lazy_static = "1.4.0"
 
