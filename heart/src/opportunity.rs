@@ -87,7 +87,7 @@ mod tests {
 
     #[test]
     fn filter_opportunities_by_single_label() {
-        let repository = OpportunityRepository {};
+        let repository = OpportunityRepository { data: OPPORTUNITIES.clone() };
         let filter = vec![
             OpportunityFilter::LabelFilter(Label {
                 key: "Sportart".to_string(),
@@ -107,7 +107,7 @@ mod tests {
 
     #[test]
     fn filter_opportunities_by_multiple_labels() {
-        let repository = OpportunityRepository {};
+        let repository = OpportunityRepository { data: OPPORTUNITIES.clone()};
         let filter = vec![
             OpportunityFilter::LabelFilter(Label {
                 key: "Aufgabenfeld".to_string(),
@@ -121,13 +121,13 @@ mod tests {
 
         assert_eq!(
             actual,
-            OPPOTrainerRTUNITIES.clone()
+            OPPORTUNITIES.clone()
         )
     }
 
     #[test]
     fn filter_opportunities_by_none_partially_existing_label() {
-        let repository = OpportunityRepository {};
+        let repository = OpportunityRepository { data: OPPORTUNITIES.clone()};
         let filter = vec![
             OpportunityFilter::LabelFilter(Label {
                 key: "Sportart".to_string(),
@@ -147,7 +147,7 @@ mod tests {
 
     #[test]
     fn filter_opportunities_by_none_existing_label() {
-        let repository = OpportunityRepository {};
+        let repository = OpportunityRepository { data: OPPORTUNITIES.clone()};
         let filter = vec![
             OpportunityFilter::LabelFilter(Label {
                 key: "Sportart".to_string(),
@@ -172,7 +172,7 @@ impl TryFrom<DTO> for Opportunity {
     fn try_from(raw_data: DTO) -> Result<Self, Self::Error> {
         // TODO: validate
         Ok(Self { 
-                job_description: raw_data.job_description, 
+            job_description: raw_data.job_description, 
                 organisation: Organisation { 
                     id: raw_data.organisation_id,
                     name: raw_data.organisation_name,
@@ -223,37 +223,37 @@ impl TryFrom<DTO> for Opportunity {
         label_3: String,
         label_4: String) -> Vec<Label> {
 
-            let mut myVector: Vec<Label> = vec![];
+            let mut my_vector: Vec<Label> = vec![];
 
             if label_1.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
-                myVector.push(Label {
+                my_vector.push(Label {
                     key: label_1.to_string().split("=").nth(0).unwrap().to_string(),
                     values: vec![label_1.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
 
             if label_2.to_string().split("=").nth(0).unwrap().to_string() != "".to_string()  {
-                myVector.push(Label {
+                my_vector.push(Label {
                     key: label_2.to_string().split("=").nth(0).unwrap().to_string(),
                     values: vec![label_2.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
 
             if label_3.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
-                myVector.push(Label {
+                my_vector.push(Label {
                     key: label_3.to_string().split("=").nth(0).unwrap().to_string(),
                     values: vec![label_3.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
 
             if label_4.to_string().split("=").nth(0).unwrap().to_string() != "".to_string()  {
-                myVector.push(Label {
+                my_vector.push(Label {
                     key: label_4.to_string().split("=").nth(0).unwrap().to_string(),
                     values: vec![label_4.to_string().split("=").nth(1).unwrap().to_string()],
                 })
             }
 
-            return myVector
+            return my_vector
         }
     
     
