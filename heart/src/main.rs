@@ -23,8 +23,9 @@ use rocket_contrib::json::Json;
 
 use crate::csv_parser::csv_parser;
 use crate::label::LabelList;
-use crate::opportunity::{Opportunity, OpportunityRepository};
+use crate::opportunity::{Opportunity, OpportunityRepository, OpportunityFilter};
 use crate::repository::Repository;
+use crate::opportunity::OpportunityFilter::LabelFilter;
 
 #[get("/opportunities")] // TODO: pagination
 fn index(opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> {
@@ -33,8 +34,13 @@ fn index(opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> 
 
 /// GET /opportunities?labels=Sportart:Fußball,Kategorie:Vereinsarbeit,Kategorie:Vorstand
 #[get("/opportunities?<labels>")]
-fn find_by_labels(labels: LabelList) -> Json<String> {
-    Json(format!("{:?}", labels))
+fn find_by_labels(labels: LabelList, opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> {
+    let label_filters = labels.0
+        .into_iter()
+        .map(|label| OpportunityFilter::LabelFilter(label))
+        .collect();
+
+    Json(opportunities.find(&label_filters))
 }
 
 fn main() {

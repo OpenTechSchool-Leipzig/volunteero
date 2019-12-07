@@ -28,7 +28,7 @@ impl TryFrom<&str> for Label {
 }
 
 #[derive(Debug, PartialEq)]
-pub struct LabelList(Vec<Label>);
+pub struct LabelList(pub Vec<Label>);
 
 impl<'v> FromFormValue<'v> for LabelList {
     type Error = String;
