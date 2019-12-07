@@ -47,8 +47,8 @@ impl TryFrom<(String, String)> for PhoneNumber {
     type Error = String;
 
     fn try_from(raw_data: (String, String)) -> Result<Self, String> {
-        // allow digits and white spaces
-        let phone_regex = Regex::new(r"^[(0-9\s)]*$").unwrap();
+        // allow digits and white spaces, min. 5 max. 15 characters
+        let phone_regex = Regex::new(r"^[(0-9\s)]{5,15}$").unwrap();
         if phone_regex.is_match(&raw_data.0) {
             Ok(Self { value: raw_data.0, note: extract_note(raw_data.1) })
         } else {
@@ -101,7 +101,6 @@ mod tests {
 
     #[test]
     fn test_correct_phone() {
-
         let correct_phone = String::from("123 456");
         let note = String::from("Primary phone number");
         let phone_tuple: (String, String) = (correct_phone, note);
@@ -117,5 +116,16 @@ mod tests {
     fn test_phone_incorrect_char() {
         let phone_incorrect_char: (String, String) = (String::from("0341 # 14384"), String::from(""));
         assert_eq!(PhoneNumber::try_from(phone_incorrect_char), Err(String::from("The phone number has an incorrect format")));
+    }
+
+    #[test]
+    fn test_phone_too_short() {
+        let phone_too_short: (String, String) = (String::from("0341"), String::from(""));
+        assert_eq!(PhoneNumber::try_from(phone_too_short), Err(String::from("The phone number has an incorrect format")));
+    }
+
+    fn test_phone_too_long() {
+        let phone_too_long: (String, String) = (String::from("0345 3784 473472"), String::from(""));
+        assert_eq!(PhoneNumber::try_from(phone_too_long), Err(String::from("The phone number has an incorrect format")));
     }
 }
