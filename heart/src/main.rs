@@ -43,6 +43,8 @@ fn find_by_labels(labels: LabelList, opportunities: State<OpportunityRepository>
     Json(opportunities.find(&label_filters))
 }
 
+// TODO: presumably our answers are missing proper encoding/chartes headers
+
 fn main() {
     if let Err(err) = csv_parser() {
         println!("error running example: {}", err);
