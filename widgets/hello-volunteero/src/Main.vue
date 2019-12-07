@@ -1,6 +1,6 @@
 <template>
   <div class="volunteero">
-    <Bot />
+    <Bot @showModal="showModal = true" />
     <Modal v-show="showModal" @closeModal="showModal = false" />
   </div>
 </template>
