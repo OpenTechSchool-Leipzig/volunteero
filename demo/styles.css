@@ -1,0 +1,17 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #251127;
+  color: rgb(252, 137, 61);
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+}
