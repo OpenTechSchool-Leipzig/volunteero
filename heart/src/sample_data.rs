@@ -9,7 +9,7 @@ use crate::organisation::Organisation;
 
 lazy_static! {
     pub static ref OPPORTUNITIES: Vec<Opportunity> = vec![Opportunity {
-        jobdescription: "Trainer".to_string(),
+        job_description: "Trainer".to_string(),
         organisation: ORGANISATIONS.first().unwrap().clone(),
         locations: LOCATIONS.clone(),
         contact: CONTACTS.first().unwrap().clone(),
