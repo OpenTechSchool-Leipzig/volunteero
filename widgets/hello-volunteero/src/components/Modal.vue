@@ -3,8 +3,18 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <button @click.prevent="emitClose" class="modal-close" aria-label="close">x</button>
-        <QuestionList @setResults="onSetResults" @resetResults="onResetResults" />
+        <button
+          @click.prevent="emitClose"
+          class="modal-close"
+          aria-label="close"
+        >
+          x
+        </button>
+        <QuestionList
+          @setResults="onSetResults"
+          @resetResults="onResetResults"
+          :showResults="showResults"
+        />
         <ul v-if="showResults">
           <li v-for="(cat, key) in chosenCategories" :key="key">{{ cat }}</li>
         </ul>

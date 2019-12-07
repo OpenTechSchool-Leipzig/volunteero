@@ -1,17 +1,18 @@
 <template>
   <div class="questions">
-    <h2>Welche Fähigkeiten kannst du einbringen?</h2>
-    <ul>
-      <transition mode="out-in">
-        <Question
-          :key="activeQuestion.id"
-          v-bind="activeQuestion"
-          @yes="choseCategory"
-          @no="addQuestion"
-        />
-      </transition>
-    </ul>
-
+    <template v-if="!showResults">
+      <h2>Welche Fähigkeiten kannst du einbringen?</h2>
+      <ul>
+        <transition mode="out-in">
+          <Question
+            :key="activeQuestion.id"
+            v-bind="activeQuestion"
+            @yes="choseCategory"
+            @no="addQuestion"
+          />
+        </transition>
+      </ul>
+    </template>
     <button @click="resetQuestions">Neu starten</button>
   </div>
 </template>
@@ -22,6 +23,9 @@ import Question from "@/components/Question.vue";
 export default {
   components: {
     Question
+  },
+  props: {
+    showResults: Boolean
   },
   data() {
     return {
@@ -63,7 +67,7 @@ export default {
       this.$emit("resetResults");
     }
   },
-  mounted() {
+  created() {
     const randId = this.getRandId();
     this.selectedTalents = [...this.selectedTalents, randId];
   }
