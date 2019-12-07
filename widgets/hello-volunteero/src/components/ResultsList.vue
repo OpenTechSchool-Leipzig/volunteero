@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Result v-for="result in results" :key="result.organisation.id" v-bind="result" />
+    <Result
+      v-for="result in results"
+      :key="result.organisation.id"
+      v-bind="result"
+    />
   </div>
 </template>
 
@@ -12,19 +16,19 @@ export default {
     Result
   },
   props: {
-    category: {
+    categories: {
       default: () => []
     }
   },
   async mounted() {
-    if (this.category) {
+    if (this.categories) {
       return;
     }
 
-    const categories = this.category.join(",category:");
+    const joinedCategories = this.categories.join(",category:");
     try {
       const res = await fetch(
-        `https://volunteero.noidea.info/opportunities?labels=category:${categories}`
+        `https://volunteero.noidea.info/opportunities?labels=category:${joinedCategories}`
       );
       if (res.status === 200) {
         const json = await res.json();
@@ -42,6 +46,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
-
+<style></style>
