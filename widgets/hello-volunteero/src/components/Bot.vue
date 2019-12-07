@@ -1,6 +1,6 @@
 <template>
   <div class="bot" @click.prevent="openModal">
-    <div class="speech-bubble" :style="speechBubble">Lust auf Ehrenamt?</div>
+    <div class="speech-bubble">Lust auf Ehrenamt?</div>
     <LamaSvg />
   </div>
 </template>
@@ -13,12 +13,6 @@ export default {
   methods: {
     openModal() {
       this.$emit("showModal");
-    }
-  },
-  props: ["primaryColor"],
-  computed: {
-    speechBubble() {
-      return `background-color: ${this.primaryColor}`;
     }
   }
 };
@@ -39,6 +33,8 @@ export default {
   margin-bottom: 5px;
   border-radius: 0.4em;
   width: 100%;
+  background-color: #009ee0;
+  background-color: var(--primary-color);
 }
 .speech-bubble:after {
   content: "";
@@ -48,7 +44,8 @@ export default {
   width: 0;
   height: 0;
   border: 0.8em solid transparent;
-  border-top-color: rgb(0, 110, 201);
+  border-top-color: #009ee0;
+  border-top-color: var(--primary-color);
   border-bottom: 0;
   border-left: 0;
   margin-left: -0.312em;

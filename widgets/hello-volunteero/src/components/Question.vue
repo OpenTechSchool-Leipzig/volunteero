@@ -1,20 +1,22 @@
 <template>
   <li class="question">
-    <h2>Welche Fähigkeiten kannst du einbringen?</h2>
     <div class="question-text">{{ text }}</div>
-
     <button
       @click="emitChoice('yes')"
       class="choice-btn"
       :class="[choice === 'yes' ? 'selected-yes' : '']"
       :disabled="choice"
-    >ja</button>
+    >
+      ja
+    </button>
     <button
       class="choice-btn"
       @click="emitChoice('no')"
       :class="[choice === 'no' ? 'selected-no' : '']"
       :disabled="choice"
-    >nein</button>
+    >
+      nein
+    </button>
   </li>
 </template>
 
@@ -77,9 +79,7 @@ export default {
   &.v-move {
     transition: all 0.5s ease-out;
   }
-  h2 {
-    font-size: 1.3rem;
-  }
+
   .question-text {
     font-size: 1.2rem;
     padding: 1rem;

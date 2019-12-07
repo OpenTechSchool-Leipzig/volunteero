@@ -1,5 +1,6 @@
 <template>
   <div class="questions">
+    <h2>Welche Fähigkeiten kannst du einbringen?</h2>
     <transition-group tag="ul">
       <Question
         v-for="talent in talentObjects"
@@ -65,9 +66,16 @@ export default {
 };
 </script>
 
-<style>
-.questions ul{
-list-style: none;
-padding: 0
+<style lang="scss">
+.questions {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  h2 {
+    font-size: 1.3rem;
+    color: #009ee0;
+    color: var(--primary-color);
+  }
 }
-  </style>
+</style>
