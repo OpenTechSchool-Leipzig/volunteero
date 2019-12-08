@@ -3,7 +3,9 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <button @click.prevent="emitClose" class="modal-close" aria-label="close">x</button>
+        <button @click.prevent="emitClose" class="modal-close" aria-label="close">
+          <Cross />
+        </button>
         <QuestionList
           @setResults="onSetResults"
           @resetResults="onResetResults"
@@ -19,10 +21,13 @@
 <script>
 import QuestionList from "./QuestionsList";
 import ResultsList from "./ResultsList";
+import Cross from "@/svg/Cross";
+
 export default {
   components: {
     QuestionList,
-    ResultsList
+    ResultsList,
+    Cross
   },
   data() {
     return {
@@ -73,10 +78,43 @@ export default {
 }
 
 .modal-close {
-  border: 0px;
-  font-size: 1.2em;
   position: absolute;
-  right: 10px;
+  right: 5px;
+  top: 5px;
+  border-radius: 50%;
+  border: 1px solid #009ee0;
+  border-color: var(--primary-color);
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #009ee0;
+    background-color: var(--primary-color);
+    border-color: white;
+    svg {
+      fill: white;
+    }
+  }
+
+  &:disabled {
+    background-color: lightgray;
+    border-color: darkgrey;
+    svg {
+      fill: darkgrey;
+    }
+  }
+
+  svg {
+    fill: #009ee0;
+    fill: var(--primary-color);
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .modal-content {
