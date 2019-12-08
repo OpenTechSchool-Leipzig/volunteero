@@ -26,7 +26,7 @@ export default {
 .speech-bubble {
   position: relative;
   color: white;
-  font-size: 20px;
+  font-size: 1.2em;
   line-height: 25px;
   text-align: center;
   padding: 20px;

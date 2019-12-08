@@ -1,12 +1,8 @@
 <template>
   <li class="question">
     <div class="question-text">{{ text }}</div>
-    <button @click="emitChoice('yes')" class="choice-btn">
-      ja
-    </button>
-    <button class="choice-btn" @click="emitChoice('no')">
-      nein
-    </button>
+    <button @click="emitChoice('yes')" class="choice-btn">ja</button>
+    <button class="choice-btn" @click="emitChoice('no')">nein</button>
   </li>
 </template>
 
@@ -29,12 +25,12 @@ export default {
 
 <style lang="scss">
 .choice-btn {
-  font-size: 1rem;
+  font-size: 1em;
   width: 48%;
-  padding: 0.5rem;
+  padding: 0.5em;
   border: 1px solid #009ee0;
   border-color: var(--primary-color);
-  border-radius: 0.3rem;
+  border-radius: 0.3em;
   background-color: transparent;
   transition: all 0.3s ease;
 
@@ -76,8 +72,8 @@ export default {
   }
 
   .question-text {
-    font-size: 1.2rem;
-    padding: 1rem;
+    font-size: 1.2em;
+    padding: 1em;
   }
 }
 </style>

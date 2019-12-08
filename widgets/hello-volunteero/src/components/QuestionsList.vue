@@ -57,7 +57,7 @@ export default {
         }
         this.selectedTalents = [...this.selectedTalents, newId];
       } else {
-        // remove duplicates form chosenCategories through creating a new Set from the Array and parse it back using the spread operator.
+        // emove duplicates form chosenCategories through creating a new Set from the Array and parse it back using the spread operator.
         this.$emit("setResults", [...new Set(this.chosenCategories)]);
       }
     },
@@ -89,12 +89,12 @@ export default {
     margin-bottom: 30px;
   }
   button {
-    font-size: 1rem;
+    font-size: 1em;
     width: 48%;
-    padding: 0.5rem;
+    padding: 0.5em;
     border: 1px solid #009ee0;
     border-color: var(--primary-color);
-    border-radius: 0.3rem;
+    border-radius: 0.3em;
     background-color: transparent;
     transition: all 0.3s ease;
 

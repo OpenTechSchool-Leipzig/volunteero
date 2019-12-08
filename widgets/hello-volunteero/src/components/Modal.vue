@@ -48,11 +48,11 @@ export default {
       this.chosenCategories = [];
     }
   },
-  beforeMount() {
+  befoemount() {
     window.addEventListener("keyup", this.onEscapeKeyUp);
   },
   beforeDestroy() {
-    window.removeEventListener("keyup", this.onEscapeKeyUp);
+    window.emoveEventListener("keyup", this.onEscapeKeyUp);
   }
 };
 </script>
@@ -74,17 +74,17 @@ export default {
 
 .modal-close {
   border: 0px;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   position: absolute;
   right: 10px;
 }
 
 .modal-content {
-  border-radius: 0.5rem;
+  border-radius: 0.5em;
   min-height: 300px;
   width: 100%;
   max-width: 500px;
-  padding: 1rem;
+  padding: 1em;
   top: 0;
   position: fixed;
   background-color: white;
