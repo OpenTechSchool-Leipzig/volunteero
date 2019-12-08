@@ -1,6 +1,6 @@
 <template>
   <div class="result">
-    <h1>{{ job_description }}</h1>
+    <h3>{{ job_description }}</h3>
     <span>{{ organisation.name }}</span>
     <div v-if="hasContactInfo">
       {{ contact.name }}
@@ -15,9 +15,7 @@
         <span v-if="phonenote && phonenote.length">({{ phonenote }})</span>
       </div>
     </div>
-    <div v-if="disciplines && disciplines.length">
-      Sportart: {{ disciplines }}
-    </div>
+    <div v-if="disciplines && disciplines.length">Sportart: {{ disciplines }}</div>
   </div>
 </template>
 

@@ -1,9 +1,8 @@
 <template>
   <div>
+    <h2>Das könnte dich interessieren:</h2>
     <button @click="currentSlide--" :disabled="currentSlide === 0">Prev</button>
-    <button @click="currentSlide++" :disabled="currentSlide === results.length">
-      Next
-    </button>
+    <button @click="currentSlide++" :disabled="currentSlide === results.length">Next</button>
     <div class="result-container">
       <transition>
         <Result v-if="activeResult" :key="currentSlide" v-bind="activeResult" />

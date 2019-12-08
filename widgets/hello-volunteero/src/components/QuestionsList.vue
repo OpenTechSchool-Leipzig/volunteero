@@ -88,11 +88,6 @@ export default {
     height: 120px;
     margin-bottom: 30px;
   }
-  h2 {
-    font-size: 1.3rem;
-    color: #009ee0;
-    color: var(--primary-color);
-  }
   button {
     font-size: 1rem;
     width: 48%;

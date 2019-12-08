@@ -47,6 +47,12 @@ export default {
 }
 
 .volunteero {
+  h2 {
+    font-size: 1.3rem;
+    color: #009ee0;
+    color: var(--primary-color);
+  }
+
   button {
     outline: none;
   }
