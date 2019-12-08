@@ -1,10 +1,8 @@
 <template>
   <div v-if="show" class="bot" @click.prevent="openModal">
-        <button
-          @click.stop.prevent="show = !show"
-          class="close-button"
-          aria-label="close"
-        ><bold>✘</bold></button>
+    <button @click.stop.prevent="show = !show" class="close-button" aria-label="close">
+      <span>✘</span>
+    </button>
     <div class="speech-bubble">Lust auf Ehrenamt?</div>
     <LamaSvg />
   </div>
@@ -19,32 +17,33 @@ export default {
     openModal() {
       this.$emit("showModal");
     }
-  }, data() {
-    return {
-      show: true,
-    };
   },
+  data() {
+    return {
+      show: true
+    };
+  }
 };
 </script>
 
-<style>
+<style lang="scss">
 .bot {
   width: 150px;
   cursor: pointer;
 }
 .close-button {
-    position: fixed;
-    right: 0px;
-    bottom: 230px;
-    z-index: 9999;
-    color: white;
-    background-color:transparent;
-    border: 0px
+  position: fixed;
+  right: 0px;
+  bottom: 230px;
+  z-index: 9999;
+  color: white;
+  background-color: transparent;
+  border: 0px;
 }
 button.close-button:hover {
-  background:transparent;
+  background: transparent;
   color: rgba(255, 0, 0, 0.609);
-  cursor:pointer;
+  cursor: pointer;
 }
 .speech-bubble {
   position: relative;
