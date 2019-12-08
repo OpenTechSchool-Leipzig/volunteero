@@ -1,5 +1,10 @@
 <template>
-  <div class="bot" @click.prevent="openModal">
+  <div v-if="show" class="bot" @click.prevent="openModal">
+        <button
+          @click.stop.prevent="show = !show"
+          class="close-button"
+          aria-label="close"
+        ><bold>✘</bold></button>
     <div class="speech-bubble">Lust auf Ehrenamt?</div>
     <LamaSvg />
   </div>
@@ -14,7 +19,11 @@ export default {
     openModal() {
       this.$emit("showModal");
     }
-  }
+  }, data() {
+    return {
+      show: true,
+    };
+  },
 };
 </script>
 
@@ -22,6 +31,20 @@ export default {
 .bot {
   width: 150px;
   cursor: pointer;
+}
+.close-button {
+    position: fixed;
+    right: 0px;
+    bottom: 230px;
+    z-index: 9999;
+    color: white;
+    background-color:transparent;
+    border: 0px
+}
+button.close-button:hover {
+  background:transparent;
+  color: rgba(255, 0, 0, 0.609);
+  cursor:pointer;
 }
 .speech-bubble {
   position: relative;
