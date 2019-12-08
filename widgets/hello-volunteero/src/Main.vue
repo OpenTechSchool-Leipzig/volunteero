@@ -44,14 +44,17 @@ export default {
 .volunteero * {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  font-size: 16px;
 }
 
 .volunteero {
+  font-size: 16px;
   h2 {
     font-size: 1.3em;
     color: #009ee0;
     color: var(--primary-color);
+  }
+  h3 {
+    font-size: 1.2em;
   }
 
   button {
