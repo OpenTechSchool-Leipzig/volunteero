@@ -69,7 +69,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_correct_email() {
+    fn validate_correct_email() {
         let correct_email = String::from("someone@example.com");
         let note = String::from("Primary");
         let mail_tuple: (String, String) = (correct_email, note);
@@ -82,25 +82,25 @@ mod tests {
     }
 
     #[test]
-    fn test_incorrect_email_1() {
+    fn throw_err_for_email_without_at_sign() {
         let incorrect_email: (String, String) = (String::from("abc.de"), String::from(""));
         assert_eq!(EMailAddress::try_from(incorrect_email), Err(String::from("The e-mail has an incorrect format")));
     }
 
     #[test]
-    fn test_incorrect_email_2() {
+    fn throw_err_for_email_without_characters_after_at_sign() {
         let incorrect_email: (String, String) = (String::from("3837@"), String::from(""));
         assert_eq!(EMailAddress::try_from(incorrect_email), Err(String::from("The e-mail has an incorrect format")));
     }
 
     #[test]
-    fn test_incorrect_email_3() {
+    fn throw_err_for_email_with_dot_before_at_sign() {
         let incorrect_email: (String, String) = (String::from("opi.@d.de"), String::from(""));
         assert_eq!(EMailAddress::try_from(incorrect_email), Err(String::from("The e-mail has an incorrect format")));
     }
 
     #[test]
-    fn test_correct_phone() {
+    fn validate_correct_phone_number() {
         let correct_phone = String::from("123 456");
         let note = String::from("Primary phone number");
         let phone_tuple: (String, String) = (correct_phone, note);
@@ -113,18 +113,18 @@ mod tests {
     }
 
     #[test]
-    fn test_phone_incorrect_char() {
+    fn throw_err_for_phone_number_with_incorrect_char() {
         let phone_incorrect_char: (String, String) = (String::from("0341 # 14384"), String::from(""));
         assert_eq!(PhoneNumber::try_from(phone_incorrect_char), Err(String::from("The phone number has an incorrect format")));
     }
 
     #[test]
-    fn test_phone_too_short() {
+    fn throw_err_for_too_short_phone_number() {
         let phone_too_short: (String, String) = (String::from("0341"), String::from(""));
         assert_eq!(PhoneNumber::try_from(phone_too_short), Err(String::from("The phone number has an incorrect format")));
     }
 
-    fn test_phone_too_long() {
+    fn throw_err_for_too_long() {
         let phone_too_long: (String, String) = (String::from("0345 3784 473472"), String::from(""));
         assert_eq!(PhoneNumber::try_from(phone_too_long), Err(String::from("The phone number has an incorrect format")));
     }
