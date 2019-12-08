@@ -68,10 +68,15 @@ export default {
 };
 </script>
 <style lang="scss">
+h2 {
+  padding-left: 59px;
+  margin-bottom: 0;
+  margin-top: 40px;
+}
 .result-container {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 250px;
 }
 .slide-controls {
   position: absolute;
