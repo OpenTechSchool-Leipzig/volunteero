@@ -40,9 +40,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .volunteero * {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+}
+
+.volunteero {
+  button {
+    outline: none;
+  }
 }
 </style>
