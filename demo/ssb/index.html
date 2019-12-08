@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+
+<meta charset="utf-8" />
+<!--
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2017 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+<base href="" />
+<link rel="shortcut icon" href="https://www.ssb-leipzig.de/fileadmin/templates/images/favicon.ico" type="image/x-icon" />
+
+<meta name="generator" content="TYPO3 CMS" />
+
+
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3temp/Assets/24c474d280.css?1527277243" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/Css/tx_cfsportinleipzig.css?1502287439" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/Css/easy-autocomplete.min.css?1502287439" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/Css/easy-autocomplete.themes.min.css?1502287439" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/Css/yellow-text-default.css?1502287439" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/Css/fullcalendar.min.css?1502287439" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/Css/fullcalendar.print.css?1502287439" media="print" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cf_changepassword/Resources/Public/Css/tx_cfchangepassword.css?1459516880" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/ws_flexslider/Resources/Public/Css/flexslider.css?1496764010" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/ws_flexslider/Resources/Public/Css/mods.css?1503584245" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/t3ddy/Resources/Public/CSS/jquery-ui-1.11.4.min.css?1505743427" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/t3ddy/Resources/Public/CSS/t3ddy.css?1505743427" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/cfpoll/Resources/Public/Css/tx_cfpoll.css?1510055347" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/powermail/Resources/Public/Css/Basic.css?1524211583" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/typo3conf/ext/powermail/Resources/Public/Css/Bootstrap.css?1531140368" media="all" />
+<link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/fileadmin/templates/fancybox/jquery.fancybox.css?1496771587" media="all" />
+
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/fileadmin/templates/js/modernizr.js?1496771617" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/fileadmin/templates/js/easing.extend.js?1496771615" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/fileadmin/templates/js/jquery.mousewheel-3.0.6.pack.js?1496771616" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/fileadmin/templates/js/jquery.fancybox.pack.js?1496771616" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/JavaScript/tx_cfsportinleipzig.js?1502287439" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/JavaScript/jquery.easy-autocomplete.min.js?1502287439" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/JavaScript/yellow-text.min.js?1502287439" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/JavaScript/moment.min.js?1502287439" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/JavaScript/fullcalendar.min.js?1502287439" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/cf_sportinleipzig/Resources/Public/JavaScript/lang-all.js?1502287439" type="text/javascript"></script>
+
+
+<title>Startseite&nbsp; - Stadtsportbund Leipzig</title>  <link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/fileadmin/templates/style.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="https://www.ssb-leipzig.de/fileadmin/templates/print.css" media="print" />
+  <script type="text/javascript" src="https://www.ssb-leipzig.de/fileadmin/templates/js/dom.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!--[if IE]>
+  <style type="text/css" media="all">
+    ul#subnav li ul li a, ul#subnav li.act ul li a,
+    ul#subnav li:hover ul li a {
+      position: relative;
+      top: -18px;
+    }
+    ul#subnav li ul li {
+     /* height: 27px; */
+     margin-bottom: -18px !important;
+     padding-bottom: 0px !important;
+     float: left;
+    }
+  </style>
+  <![endif]-->
+
+  <!--[if IE 8]>
+  <style type="text/css" media="all">
+    inhalt {
+    }
+    main-part {
+      position: relative;
+      left: -18px;
+      width: 990px;
+      overflow: hidden !important;
+    }
+    footer {
+      z-index: 2000;
+    }
+  </style>
+  <![endif]-->
+</head>
+<body class="startseite">
+<noscript>
+  <div class="noscripts">
+    Diese Seite funktioniert optimal nur mit Javascript. Bitte aktivieren Sie Javascript in Ihrem Browser.
+  </div>
+</noscript>
+
+
+
+<!--Header-->
+<div class="slogan"></div>
+<div id="fenster">
+
+  <header id="top">
+    <a href="startseite.html" target="_self" class="logo">Stadtsportbund Leipzig e.V.</a>
+
+
+      <nav>
+        <ul>
+        <li class="act" id="menu-Startseite"><a href="https://www.ssb-leipzig.de/startseite/" class="act"><span></span>Startseite</a></li><li id="menu-Stadtsportbund"><a href="https://www.ssb-leipzig.de/stadtsportbund/profil/"><span></span>Stadtsportbund</a></li><li id="menu-Sportjugend"><a href="https://www.ssb-leipzig.de/sportjugend/profil/"><span></span>Sportjugend</a></li><li id="menu-Leistungen"><a href="https://www.ssb-leipzig.de/leistungen/"><span></span>Leistungen</a></li><li id="menu-Galerie"><a href="https://www.ssb-leipzig.de/galerie/2019/"><span></span>Galerie</a></li><li id="menu-Vereinsdatenbank"><a href="https://www.ssb-leipzig.de/vereinsdatenbank/sport-in-leipzig/"><span></span>Vereinsdatenbank</a></li></ul>
+      </nav>
+  </header>
+
+<!--Header Ende-->
+
+
+<!--Inhalt-->
+  <div id="main-part">
+    <section id="linke-spalte">
+
+
+
+
+<a href="https://www.ssb-leipzig.de/stadtsportbund/termine/veranstaltungen.html"><h3>Termine</h3></a>
+<div class="news-list-termin-container">
+
+
+			<div class="termin-list-item">
+			  <div class="termin-list-date">23. <span>Nov.</span></div>
+			  <div class="termin-list-text termin-kasten-Stadtsportbund">
+			<a href="https://www.ssb-leipzig.de/stadtsportbund/termine/terminansicht/?tx_ttnews%5Btt_news%5D=500&amp;cHash=6cba8aea90f1215a15869f7dd9604a8f" title="Sportlerumfrage 2019">
+			  Sportlerumfrage 2019
+			 </a>
+			  </div>
+			</div>
+
+			<div class="termin-list-item">
+			  <div class="termin-list-date">07. <span>Dez.</span></div>
+			  <div class="termin-list-text termin-kasten-Sportjugend">
+			<a href="https://www.ssb-leipzig.de/leistungen/veranstaltungen/sportjugend-ehrung/" title="22. Sportjugend-Ehrung">
+			  22. Sportjugend-Ehrung
+			 </a>
+			  </div>
+			</div>
+
+			<div class="termin-list-item">
+			  <div class="termin-list-date">10. <span>Dez.</span></div>
+			  <div class="termin-list-text termin-kasten-Stadtsportbund">
+			<a href="https://www.ssb-leipzig.de/stadtsportbund/termine/terminansicht/?tx_ttnews%5Btt_news%5D=245&amp;cHash=f98f9268a50db82b2fc19ff19c40d53d" title="Schulung VermiNet">
+			  Schulung VermiNet
+			 </a>
+			  </div>
+			</div>
+
+			<div class="termin-list-item">
+			  <div class="termin-list-date">16. <span>Dez.</span></div>
+			  <div class="termin-list-text termin-kasten-Stadtsportbund">
+			<a href="https://www.ssb-leipzig.de/stadtsportbund/termine/terminansicht/?tx_ttnews%5Btt_news%5D=246&amp;cHash=f36fb9bfbdc2a3f705e9a4a71bf99f6e" title="Schulung VermiNet">
+			  Schulung VermiNet
+			 </a>
+			  </div>
+			</div>
+
+	<!-- <a href="stadtsportbund/termine/veranstaltungen.html" class="terminuebersicht">Termin&uuml;bersicht</a> -->
+</div>
+
+
+
+
+
+
+    </section>
+
+    <section id="inhalt">
+      <div id="inhalt-padding">
+
+
+
+
+
+
+
+<div id="cols"><div class="col-100 col-o"><div class="tx-ws-flexslider">
+
+
+
+
+    <div id="flexslider-961" class="flexslider  ">
+        <ul class="slides">
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/1/6/csm_BDS_2019_196_5b43775dce.jpg" width="630" height="290" alt="" />
+
+
+
+
+							<div class="caption-wrapper caption-align-left">
+								<div class="caption-text">
+									<div class="caption-body"><p class="bodytext"><br /> </p></div>
+								</div>
+
+							</div>
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/d/3/csm_BDS_2019_094_klein_c7461eeaf6.jpg" width="630" height="290" alt="" />
+
+
+
+
+							<div class="caption-wrapper caption-align-left">
+								<div class="caption-text">
+									<div class="caption-body"><p class="bodytext"><br /> </p></div>
+								</div>
+
+							</div>
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/user_upload/Bilder/Slider/20170321-mara-banner-630x290-px.png" width="630" height="290" alt="" />
+
+
+
+
+							<div class="caption-wrapper caption-align-left">
+								<div class="caption-text">
+									<div class="caption-body"><p class="bodytext"><br /> </p></div>
+								</div>
+
+							</div>
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/1/6/csm_LM2017_01_556b037453.jpg" width="630" height="290" alt="" />
+
+
+
+
+							<div class="caption-wrapper caption-align-left">
+								<div class="caption-text">
+									<div class="caption-body"><p class="bodytext"><br /> </p></div>
+								</div>
+
+							</div>
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/user_upload/Bilder/Slider/Lipsiade_2019.png" width="630" height="290" alt="" />
+
+
+
+
+							<div class="caption-wrapper caption-align-left">
+								<div class="caption-text">
+									<div class="caption-body"><p class="bodytext"><br /> </p></div>
+								</div>
+
+							</div>
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/7/3/csm_SPK-LIP_2019_Hockey_018_8a76a6f6b6.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/d/e/csm_SPK-LIP_2019_Judo_006_0a4e58bcbb.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/b/b/csm_SPK-LIP_2019_Staffellauf_002_c7f90c99d4.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/f/7/csm_2019-07-28_15-03-34_ds_162a3a688c.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/f/2/csm_Homepage_2_6fb3db8bf9.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/b/3/csm_Homepage_e63a4b655e.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/d/8/csm_IMG_7575a_8f7fb70238.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/c/8/csm_2019-fb-Banner-637x297_d05ff3a19d.png" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+
+
+		<li>
+			<div class="slidercontent wsflexslider-style1">
+
+
+					<img src="https://www.ssb-leipzig.de/fileadmin/_processed_/7/6/csm_SJE_2018_125_fdf21f739c.jpg" width="630" height="290" alt="" />
+
+
+
+
+
+			</div>
+		</li>
+
+
+
+        </ul>
+    </div>
+
+
+
+
+</div><h2>News</h2>
+<div class="news-list-container">
+
+
+
+
+	<div class="news-list-item">
+		<div class="news-list-datum">
+			<div class="kasten-kat-Sportjugend"></div>
+			<div class="news-list-bild"><img src="https://www.ssb-leipzig.de/typo3temp/_processed_/1/c/csm_Andrea_Herzog_0ef72b9158.jpg" width="130" height="115" alt="" /></div>
+		</div>
+		<div class="news-list-inh">
+			<h3><a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=497&amp;cHash=47f61b0b41ca19df439a7e604dcc6713" title="In wenigen Stunden steigt die 22. Sportjugend-Ehrung im HAUS LEIPZIG!">In wenigen Stunden steigt die 22. Sportjugend-Ehrung im HAUS LEIPZIG!</a></h3>
+			<div class="news-text">
+				Am 7. Dezember 2019 werden im &quot;Haus Leipzig&quot; ca. 70 erfolgreiche Nachwuchssportler*innen und sieben junge, engagierte...
+			</div>
+			<div class="button-lesen">
+						<a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=497&amp;cHash=47f61b0b41ca19df439a7e604dcc6713" title="In wenigen Stunden steigt die 22. Sportjugend-Ehrung im HAUS LEIPZIG!">lesen</a>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="news-list-item">
+		<div class="news-list-datum">
+			<div class="kasten-kat-Stadtsportbund"></div>
+			<div class="news-list-bild"><img src="https://www.ssb-leipzig.de/typo3temp/_processed_/9/e/csm_Homepage_01_273ef7e304.png" width="130" height="115" alt="" /></div>
+		</div>
+		<div class="news-list-inh">
+			<h3><a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=318&amp;cHash=31cdecc18988d784895277735975f0b6" title="LEIPZIGER SPORTLERUMFRAGE 2019">LEIPZIGER SPORTLERUMFRAGE 2019 </a></h3>
+			<div class="news-text">
+				Start: Samstag, 23.11.2019 | Ende: Sonntag, 12.01.2020
+Die LEIPZIGER&nbsp; SPORTLERUMFRAGE &nbsp;- so läuft es, so funktioniert es
+Der...
+			</div>
+			<div class="button-lesen">
+						<a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=318&amp;cHash=31cdecc18988d784895277735975f0b6" title="LEIPZIGER SPORTLERUMFRAGE 2019">lesen</a>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="news-list-item">
+		<div class="news-list-datum">
+			<div class="kasten-kat-Stadtsportbund"></div>
+			<div class="news-list-bild"><img src="https://www.ssb-leipzig.de/typo3temp/_processed_/e/9/csm_BDS_2019_197_15db0b23e5.jpg" width="130" height="115" alt="" /></div>
+		</div>
+		<div class="news-list-inh">
+			<h3><a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=496&amp;cHash=fd78ec320f792af7cde70271994980ff" title="Jetzt Karten für den 29. Ball des Sports 2020 bestellen!">Jetzt Karten für den 29. Ball des Sports 2020 bestellen!</a></h3>
+			<div class="news-text">
+				 Am Samstag, 25. Januar 2020, werden Oberbürgermeister Burkhard Jung und Stadtsportbundpräsident Uwe Gasch zu unserem sportlich-eleganten...
+			</div>
+			<div class="button-lesen">
+						<a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=496&amp;cHash=fd78ec320f792af7cde70271994980ff" title="Jetzt Karten für den 29. Ball des Sports 2020 bestellen!">lesen</a>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="news-list-item">
+		<div class="news-list-datum">
+			<div class="kasten-kat-Extern"></div>
+			<div class="news-list-bild"><img src="https://www.ssb-leipzig.de/typo3temp/_processed_/3/d/csm_IMG_7681_81144623c6.jpg" width="130" height="115" alt="" /></div>
+		</div>
+		<div class="news-list-inh">
+			<h3><a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=494&amp;cHash=44f3beb6b34c3ef584b33e24fe32f802" title="Stadtsportbund Leipzig und die Sportjugend beraten&lt;br&gt;Interessierte auf der 1. Leipziger ENGAGEMENTMESSE!">Stadtsportbund Leipzig und die Sportjugend beraten<br />Interessierte auf der 1. Leipziger ENGAGEMENTMESSE!</a></h3>
+			<div class="news-text">
+				Im Rahmen der 1. Leipziger Engagementmesse im Neuen Rathaus haben sich auch der Stadtsportbund Leipzig und seine Sportjugend beteiligt....
+			</div>
+			<div class="button-lesen">
+						<a href="https://www.ssb-leipzig.de/newsansicht/?tx_ttnews%5Btt_news%5D=494&amp;cHash=44f3beb6b34c3ef584b33e24fe32f802" title="Stadtsportbund Leipzig und die Sportjugend beraten&lt;br&gt;Interessierte auf der 1. Leipziger ENGAGEMENTMESSE!">lesen</a>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="col-wrapper">
+  <div class="col-30 col-li"><h3>Partner</h3>
+    <div class="csc-textpic csc-textpic-left csc-textpic-above csc-textpic-equalheight">
+      <div class="csc-textpic-imagewrap" data-csc-images="2" data-csc-cols="2">
+        <div class="csc-textpic-imagerow csc-textpic-imagerow-last">
+          <div class="csc-textpic-imagecolumn csc-textpic-firstcol">
+            <figure class="csc-textpic-image csc-textpic-last">
+              <a href="http://www.dosb.de" target="_blank">
+                <img src="https://www.ssb-leipzig.de/fileadmin/user_upload/Bilder/Sponsoren/Logo_neu800x600.jpg" width="80" height="60" class="captify" alt="" />
+              </a>
+            </figure>
+          </div>
+          <div class="csc-textpic-imagecolumn csc-textpic-lastcol">
+            <figure class="csc-textpic-image csc-textpic-last">
+              <a href="http://www.sport-fuer-sachsen.de" target="_blank">
+                <img src="https://www.ssb-leipzig.de/fileadmin/user_upload/Bilder/Sponsoren/lsb.jpeg" width="59" height="60" class="captify" alt="" />
+              </a>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-trenner-vert"></div>
+  <div class="col-30b col-ce"><h3 style="text-align: center;">Förderer</h3>
+    <div class="csc-textpic csc-textpic-left csc-textpic-above csc-textpic-equalheight">
+      <div class="csc-textpic-imagewrap" data-csc-images="1" data-csc-cols="1">
+        <figure class="csc-textpic-image csc-textpic-last">
+          <a href="https://www.ssb-leipzig.de/fileadmin/user_upload/Bilder/Sponsoren/Logo_SMI_SSB_2019.jpg" rel="bildergruppe">
+            <img src="https://www.ssb-leipzig.de/fileadmin/user_upload/Bilder/Sponsoren/Logo_SMI_SSB_2019.jpg" width="154" height="60" class="captify" alt="" />
+          </a>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="col-trenner-vert"></div>
+  <div class="col-30 col-re"><h3>Sponsoren</h3>
+    <div class="csc-textpic csc-textpic-right csc-textpic-above csc-textpic-equalheight">
+      <div class="csc-textpic-imagewrap" data-csc-images="1" data-csc-cols="1">
+        <figure class="csc-textpic-image csc-textpic-last">
+          <a href="http://www.sparkasse-leipzig.de" target="_blank">
+            <img src="https://www.ssb-leipzig.de/fileadmin/user_upload/Bilder/Sponsoren/Logo_Sparkasse.jpg" width="126" height="60" class="captify" alt="" />
+          </a>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div</div><div class="col-wrapper"><div class="col-50 col-li"></div><div class="col-trenner-vert"></div><div class="col-50 col-re"></div></div></div>
+
+
+
+
+
+
+
+
+
+  </div>
+    </section>
+    <div class="clear"></div>
+  </div>
+
+
+
+<!--Inhalt Ende-->
+
+
+<!--Footer-->
+
+  <footer>
+    <div class="sitenav">
+      <div class="totop"><a href="https://www.ssb-leipzig.de/#" class="link-totop">Nach oben</a></div>
+      <div class="history-back"><a href="javascript:history.back()">zurück</a></div>
+    </div>
+
+    <div class="adresse-footer">
+      <h3>Stadtsportbund Leipzig e.V. </h3><p class="bodytext"> Goyastraße 2 d <br />04105 Leipzig </p>
+<p class="bodytext">Telefon&nbsp;0341 308946-0<br />Telefax 0341 308946-19 </p>
+<p class="bodytext"> E-Mail: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#115;&#115;&#98;&#45;&#108;&#101;&#105;&#112;&#122;&#105;&#103;&#46;&#100;&#101;" title="Öffnet ein Fenster zum Versenden der E-Mail" class="mail">info(at)ssb-leipzig(dot)de</a>&nbsp;</p><a href="https://www.ssb-leipzig.de/index.php?id=133" class="button-footer" target="_self">Newsletter abonnieren</a>
+    </div>
+    <div class="nav-footer">
+      <h3>Stadtsportbund</h3>
+        <ul><li><a href="https://www.ssb-leipzig.de/stadtsportbund/profil/">Profil</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/praesidium/">Präsidium</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/geschaeftsstelle/ansprechpartner/">Geschäftsstelle</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/partner/">Partner</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/mitgliedschaft/">Mitgliedschaft</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/newsarchiv/">Newsarchiv</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/termine/veranstaltungen/">Termine</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/leipziger-sportlerumfrage-2019/">Leipziger Sportlerumfrage 2019</a></li></ul>
+    </div>
+    <div class="nav-footer">
+      <h3>Sportjugend</h3>
+        <ul><li><a href="https://www.ssb-leipzig.de/sportjugend/profil/">Profil</a></li><li><a href="https://www.ssb-leipzig.de/sportjugend/vorstand/">Vorstand</a></li><li><a href="https://www.ssb-leipzig.de/sportjugend/geschaeftsstelle/">Geschäftsstelle</a></li><li><a href="https://www.ssb-leipzig.de/sportjugend/jugendbeteiligung-co/">Jugendbeteiligung & Co.</a></li><li><a href="https://www.ssb-leipzig.de/sportjugend/newsarchiv/">Newsarchiv</a></li><li><a href="https://www.ssb-leipzig.de/sportjugend/newsletter/">Newsletter</a></li><li><a href="https://www.ssb-leipzig.de/stadtsportbund/termine/veranstaltungen/">Termine</a></li></ul>
+    </div>
+    <div class="nav-footer">
+      <h3>Leistungen</h3>
+        <ul><li><a href="https://www.ssb-leipzig.de/leistungen/veranstaltungen/informationsveranstaltung-sportfoerderung-2020/">Veranstaltungen</a></li><li><a href="https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/sportartuebergreifender-grundlehrgang/">Aus- und Weiterbildung</a></li><li><a href="https://www.ssb-leipzig.de/leistungen/vereinsberatung/eu-datenschutzgrundverordnung-eu-ds-gvo/">Vereinsberatung</a></li><li><a href="https://www.ssb-leipzig.de/leistungen/gremien-und-netzwerkarbeit/fachausschuss-sport-der-stadt-leipzig/">Gremien- und Netzwerkarbeit</a></li><li><a href="https://www.ssb-leipzig.de/leistungen/vermietung/">Vermietung</a></li><li><a href="https://www.ssb-leipzig.de/leistungen/freiwilligendienste/">Freiwilligendienste</a></li><li><a href="https://www.ssb-leipzig.de/leistungen/ehrungen/ehrungen-im-ueberblick/">Ehrungen</a></li></ul>
+    </div>
+    <div class="clear"></div>
+  </footer>
+
+<!--Footer Ende-->
+</div>
+<div id="impressum"><p class="bodytext">© Stadtsportbund Leipzig e.V. - <a href="https://www.ssb-leipzig.de/stadtsportbund/geschaeftsstelle/kontakt-anfahrt/" title="Opens internal link in current window" class="internal-link">Kontakt / Anfahrt</a> | <a href="https://www.ssb-leipzig.de/impressum/" title="Opens internal link in current window" class="internal-link">Impressum</a> | <a href="https://www.ssb-leipzig.de/datenschutz/" title="Opens internal link in current window" class="internal-link">Datenschutz und Nutzungsbedingungen</a></p></div>
+<!--
+
+    <script type="text/javascript">
+
+      function DropDown(el) {
+        this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+      }
+      DropDown.prototype = {
+        initEvents : function() {
+          var obj = this;
+
+          obj.dd.on('click', function(event){
+            $(this).toggleClass('active');
+            return false;
+          });
+
+          obj.opts.on('click',function(){
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+          });
+        },
+        getValue : function() {
+          return this.val;
+        },
+        getIndex : function() {
+          return this.index;
+        }
+      }
+
+      $(function() {
+
+        var dd = new DropDown( $('#dd') );
+
+        $(document).click(function() {
+          // all dropdowns
+          $('.wrapper-dropdown-3').removeClass('active');
+        });
+
+      });
+
+    </script>
+--><script id="powermail_conditions_container" data-condition-uri="https://www.ssb-leipzig.de/startseite/?type=3132" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/t3ddy/Resources/Public/JavaScript/Libraries/jquery-ui-1.11.4-custom.min.js?1505743427" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/ws_flexslider/Resources/Public/JavaScript/jquery.flexslider-min.js?1496764010" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/t3ddy/Resources/Public/JavaScript/Frontend/t3ddy.js?1505743427" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/jquery.datetimepicker.min.js?1524211584" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/parsley.min.js?1524211584" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Tabs.min.js?1524211584" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Form.min.js?1524211584" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/typo3conf/ext/powermail_cond/Resources/Public/JavaScript/PowermailCondition.min.js?1526023217" type="text/javascript"></script>
+<script src="https://www.ssb-leipzig.de/fileadmin/templates/js/functions.js?1513933867" type="text/javascript"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+/*flexslider-961*/
+
+
+    jQuery(document).ready(function() {
+        jQuery('#flexslider-961').flexslider({
+            animation: "fade",
+            animationLoop: true,
+            itemMargin: 0,
+            easing: "swing",
+            direction: "horizontal",
+            reverse: false,
+            smoothHeight: false,
+            startAt: 0,
+            slideshow: true,
+            slideshowSpeed: 7000,
+            animationSpeed: 600,
+            initDelay: 0,
+            randomize: false,
+
+            pauseOnAction: true,
+            pauseOnHover: false,
+            useCSS: true,
+            touch: true,
+            video: false,
+
+            controlNav: true,
+            directionNav: true,
+            prevText: "Zurück",
+            nextText: "Weiter",
+
+            keyboard: true,
+            multipleKeyboard: false,
+            mousewheel: false,
+            pausePlay: false,
+            pauseText: "Pause",
+            playText: "Abspielen",
+
+            controlsContainer: "",
+            manualControls: "",
+            sync: "",
+            asNavFor: "",
+
+            itemWidth: 0,
+            itemMargin: 0,
+            minItems: 0,
+            maxItems: 0,
+            move: 0,
+
+            carousel: false,
+            start: function(slider){
+                jQuery('body').removeClass('loading');
+            }
+        });
+    });
+
+
+
+/*]]>*/
+</script>
+
+<hello-volunteero
+      botSize="1"
+      bot-position="fixed-right"
+      primary-color="rgb(252, 137, 61);"
+    ></hello-volunteero>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://hello-volunteero.netlify.com/hello-volunteero.min.js"></script>
+
+</body>
+</html>
+<!-- Cached page generated 07-12-19 14:37. Expires 08-12-19 14:37 -->
+<!-- Parsetime: 0ms -->
