@@ -3,7 +3,7 @@
     <template v-if="!showResults">
       <h2>Welche Fähigkeiten kannst du einbringen?</h2>
       <ul>
-        <transition mode="out-in">
+        <transition>
           <Question
             :key="activeQuestion.id"
             v-bind="activeQuestion"
@@ -78,12 +78,15 @@ export default {
 .questions {
   display: flex;
   flex-direction: column;
+
   align-items: center;
   ul {
+    position: relative;
     list-style: none;
     padding: 0;
     width: 100%;
-    margin-bottom: 60px;
+    height: 120px;
+    margin-bottom: 30px;
   }
   h2 {
     font-size: 1.3rem;

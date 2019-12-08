@@ -1,21 +1,23 @@
 <template>
-  <div>
-    <h1>{{job_description}}</h1>
-    <span>{{organisation.name}}</span>
+  <div class="result">
+    <h1>{{ job_description }}</h1>
+    <span>{{ organisation.name }}</span>
     <div v-if="hasContactInfo">
-      {{contact.name}}
+      {{ contact.name }}
       <div v-if="email && email.length">
         E-Mail:
-        {{email}}
-        <span v-if="emailnote && emailnote.length">({{emailnote}})</span>
+        {{ email }}
+        <span v-if="emailnote && emailnote.length">({{ emailnote }})</span>
       </div>
       <div v-if="phone && phone.length">
         Phone:
-        {{phone}}
-        <span v-if="phonenote && phonenote.length">({{phonenote}})</span>
+        {{ phone }}
+        <span v-if="phonenote && phonenote.length">({{ phonenote }})</span>
       </div>
     </div>
-    <div v-if="disciplines && disciplines.length">Sportart: {{disciplines}}</div>
+    <div v-if="disciplines && disciplines.length">
+      Sportart: {{ disciplines }}
+    </div>
   </div>
 </template>
 
@@ -29,7 +31,7 @@ export default {
   },
   data() {
     return {
-      disciplineKey: "Sportart"
+      disciplineKey: "sport"
     };
   },
   computed: {
@@ -96,4 +98,30 @@ export default {
 };
 </script>
 
+<style lang="scss">
+.result {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+  &.v-enter {
+    transform: translateX(200%);
+    opacity: 15%;
+  }
 
+  &.v-leave-to {
+    transform: translateX(-200%);
+    opacity: 15%;
+  }
+  &.v-enter-to,
+  &.v-leave {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+  &.v-enter-active,
+  &.v-leave-active,
+  &.v-move {
+    transition: all 0.5s ease-out;
+  }
+}
+</style>

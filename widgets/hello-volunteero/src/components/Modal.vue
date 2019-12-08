@@ -16,7 +16,7 @@
           :showResults="showResults"
         />
         <p v-if="showResults && chosenCategories.length === 0">
-          Ooops probiers noch mal ;)
+          Ooops probier's noch mal ;)
         </p>
         <ResultsList
           v-if="showResults && chosenCategories.length"
