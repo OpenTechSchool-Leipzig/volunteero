@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Volunteero Heart is an open database for volunteering opportunities."
+  description: "Volunteero Heart is an open database for volunteering opportunities. The main purpose of this service is managing offers for unsalaried activities at various (sport) societies and enable the creation of better matching systems of potential volunteers to vacant positions."
   version: "0.1"
   title: "Volunteero Heart"
 host: "volunteero.noidea.info"
