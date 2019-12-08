@@ -3,25 +3,14 @@
     <div class="modal">
       <div class="modal-background" @click.prevent="emitClose"></div>
       <div class="modal-content">
-        <button
-          @click.prevent="emitClose"
-          class="modal-close"
-          aria-label="close"
-        >
-          x
-        </button>
+        <button @click.prevent="emitClose" class="modal-close" aria-label="close">x</button>
         <QuestionList
           @setResults="onSetResults"
           @resetResults="onResetResults"
           :showResults="showResults"
         />
-        <p v-if="showResults && chosenCategories.length === 0">
-          Ooops probier's noch mal ;)
-        </p>
-        <ResultsList
-          v-if="showResults && chosenCategories.length"
-          :categories="chosenCategories"
-        />
+        <p v-if="showResults && chosenCategories.length === 0">Ooops probier's noch mal ;)</p>
+        <ResultsList v-if="showResults && chosenCategories.length" :categories="chosenCategories" />
       </div>
     </div>
   </transition>
@@ -76,6 +65,7 @@ export default {
 .modal-background {
   background-color: rgba(black, 0.7);
   position: absolute;
+  z-index: 99;
   top: 0;
   left: 0;
   right: 0;
@@ -101,6 +91,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   overflow: hidden;
+  z-index: 99;
 
   @media (min-width: 800px) {
     top: 10%;
