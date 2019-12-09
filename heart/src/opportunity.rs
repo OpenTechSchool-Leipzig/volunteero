@@ -181,7 +181,7 @@ impl TryFrom<DTO> for Opportunity {
 }
 
 // TODO should return all addresses ||  now only returns one adress
-fn extract_options(email: String, phone: String, mobile: String) -> Vec<ContactOption> {
+fn extract_options(email: String, phone: String, _mobile: String) -> Vec<ContactOption> {
     use ContactOption::*;
     vec![
         EMail((email, "".to_string()).try_into().unwrap()),

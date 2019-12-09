@@ -1,7 +1,4 @@
 use serde::Deserialize;
-use std::convert::TryInto;
-
-use crate::label::Label;
 
 #[derive(Debug, Deserialize)]
 pub struct DTO {
