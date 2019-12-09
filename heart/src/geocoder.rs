@@ -1,6 +1,6 @@
-use reqwest::Error;
-use reqwest::header::USER_AGENT;
 use crate::address::Address;
+use reqwest::header::USER_AGENT;
+use reqwest::Error;
 use serde::Deserialize;
 
 #[derive(Debug, PartialEq, Deserialize, Clone)]
@@ -13,24 +13,24 @@ pub fn geocode(address: &Address) -> Result<LatLon, String> {
     let base_url = "https://nominatim.openstreetmap.org/";
 
     let client = reqwest::Client::new();
-    let maybe_response = client.get(base_url)
+    let maybe_response = client
+        .get(base_url)
         .header(USER_AGENT, "volunteero/0.1")
         .query(&[
             ("format", "json"),
             ("addressdetails", "0"),
             ("limit", "1"),
-            ("q", &address.as_string())
+            ("q", &address.as_string()),
         ])
         .send();
 
-    let result: Result<LatLon, String> =
-        maybe_response
-            .and_then(|mut response| response.json(): Result<Vec<LatLon>, Error>)
-            .map_err(|error| error.to_string())
-            .and_then(|lat_lons| match lat_lons {
-                list if list.len() >= 1 => Ok(list.first().unwrap().clone()),
-                _ => Err("Could not find location".to_string()),
-            });
+    let result: Result<LatLon, String> = maybe_response
+        .and_then(|mut response| response.json(): Result<Vec<LatLon>, Error>)
+        .map_err(|error| error.to_string())
+        .and_then(|lat_lons| match lat_lons {
+            list if list.len() >= 1 => Ok(list.first().unwrap().clone()),
+            _ => Err("Could not find location".to_string()),
+        });
 
     result
 }
@@ -74,4 +74,3 @@ mod tests {
         );
     }
 }
-

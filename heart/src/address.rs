@@ -13,11 +13,7 @@ impl Address {
     pub(crate) fn as_string(&self) -> String {
         format!(
             "{} {} {} {} {}",
-            self.name,
-            self.street,
-            self.house_number,
-            self.postcode,
-            self.city
+            self.name, self.street, self.house_number, self.postcode, self.city
         )
     }
 }

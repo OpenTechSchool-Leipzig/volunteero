@@ -19,15 +19,13 @@ lazy_static! {
         id: "42".to_string(),
         name: "Fußball Verein Leipzig e.V.".to_string(),
     }];
-    static ref LOCATIONS: Vec<Address> = vec![
-        Address {
-            name: "Kaninchenrennbahn".to_string(),
-            street: "Musterallee".to_string(),
-            house_number: "37 F".to_string(),
-            postcode: "04229".to_string(),
-            city: "Leipzig".to_string(),
-        }
-    ];
+    static ref LOCATIONS: Vec<Address> = vec![Address {
+        name: "Kaninchenrennbahn".to_string(),
+        street: "Musterallee".to_string(),
+        house_number: "37 F".to_string(),
+        postcode: "04229".to_string(),
+        city: "Leipzig".to_string(),
+    }];
     static ref CONTACTS: Vec<Contact> = vec![Contact {
         name: "Herr Müller".to_string(),
         options: vec![

@@ -21,13 +21,13 @@ mod sample_data;
 use std::path::Path;
 use std::process;
 
-use rocket::State;
 use rocket::response::NamedFile;
+use rocket::State;
 use rocket_contrib::json::Json;
 
 use crate::csv_parser::csv_parser;
 use crate::label::LabelList;
-use crate::opportunity::{Opportunity, OpportunityRepository, OpportunityFilter};
+use crate::opportunity::{Opportunity, OpportunityFilter, OpportunityRepository};
 use crate::repository::Repository;
 
 #[get("/opportunities")] // TODO: pagination
@@ -37,8 +37,12 @@ fn index(opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> 
 
 /// GET /opportunities?labels=Sportart:Fußball,Kategorie:Vereinsarbeit,Kategorie:Vorstand
 #[get("/opportunities?<labels>")]
-fn find_by_labels(labels: LabelList, opportunities: State<OpportunityRepository>) -> Json<Vec<Opportunity>> {
-    let label_filters = labels.0
+fn find_by_labels(
+    labels: LabelList,
+    opportunities: State<OpportunityRepository>,
+) -> Json<Vec<Opportunity>> {
+    let label_filters = labels
+        .0
         .into_iter()
         .map(|label| OpportunityFilter::LabelFilter(label))
         .collect();
@@ -58,10 +62,8 @@ fn main() {
         Err(_) => {
             println!("shit, exiting!");
             process::exit(1);
-        },
-        Ok(result) => OpportunityRepository {
-            data : result
         }
+        Ok(result) => OpportunityRepository { data: result },
     };
 
     rocket::ignite()

@@ -1,8 +1,8 @@
 use std::convert::TryInto;
+use std::env;
 use std::error::Error;
 use std::ffi::OsString;
 use std::fs::File;
-use std::env;
 
 use crate::dto::DTO;
 use crate::opportunity::Opportunity;
