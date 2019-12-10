@@ -28,7 +28,7 @@ pub fn geocode(address: &Address) -> Result<LatLon, String> {
         .and_then(|mut response| response.json(): Result<Vec<LatLon>, Error>)
         .map_err(|error| error.to_string())
         .and_then(|lat_lons| match lat_lons {
-            list if list.len() >= 1 => Ok(list.first().unwrap().clone()),
+            list if !list.is_empty() => Ok(list.first().unwrap().clone()),
             _ => Err("Could not find location".to_string()),
         });
 

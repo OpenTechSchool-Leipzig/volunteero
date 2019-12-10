@@ -15,11 +15,11 @@ impl TryFrom<&str> for Label {
     type Error = String; // TODO: custom error type
 
     fn try_from(s: &str) -> Result<Self, Self::Error> {
-        let parts: Vec<&str> = s.split(":").collect();
+        let parts: Vec<&str> = s.split(':').collect();
         if parts.len() == 2 {
             Ok(Label {
                 key: parts[0].into(),
-                values: parts[1].split(",").map(|s| s.to_string()).collect(),
+                values: parts[1].split(',').map(|s| s.to_string()).collect(),
             })
         } else {
             Err(format!("invalid label format: {}", s))
@@ -36,8 +36,8 @@ impl<'v> FromFormValue<'v> for LabelList {
     fn from_form_value(form_value: &'v RawStr) -> Result<Self, Self::Error> {
         let labels = (form_value
             .to_string()
-            .split(",")
-            .map(|l| Label::try_from(l))
+            .split(',')
+            .map(Label::try_from)
             .collect(): Result<Vec<Label>, String>)?
             .into_iter()
             .group_by(|l| l.key.clone())

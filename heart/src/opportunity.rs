@@ -12,7 +12,6 @@ use crate::label::Label;
 
 use crate::repository::Repository;
 
-use crate::sample_data::OPPORTUNITIES;
 use serde::Serialize;
 
 #[derive(Debug, PartialEq, Serialize, Clone)]
@@ -31,7 +30,7 @@ impl Opportunity {
             .into_iter()
             .find(|label| label.key == key)
             .map(|label| label.values)
-            .unwrap_or(vec![])
+            .unwrap_or_else(|| vec![])
     }
 }
 
@@ -55,12 +54,12 @@ impl Repository<Opportunity> for OpportunityRepository {
 }
 
 impl OpportunityRepository {
-    pub fn find(&self, filters: &Vec<OpportunityFilter>) -> Vec<Opportunity> {
+    pub fn find(&self, filters: &[OpportunityFilter]) -> Vec<Opportunity> {
         self.data
             .clone()
             .into_iter()
             .filter(|opportunity| {
-                filters.into_iter().all(|filter| match filter {
+                filters.iter().all(|filter| match filter {
                     OpportunityFilter::LabelFilter(filter_label) => {
                         self.filter_by_labels(opportunity, filter_label)
                     }
@@ -71,7 +70,7 @@ impl OpportunityRepository {
 
     fn filter_by_labels(&self, opportunity: &Opportunity, filter_label: &Label) -> bool {
         let values = &filter_label.values;
-        values.into_iter().any(|l| {
+        values.iter().any(|l| {
             opportunity
                 .get_labels_for_key(&filter_label.key)
                 .contains(&l)
@@ -82,6 +81,7 @@ impl OpportunityRepository {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::sample_data::OPPORTUNITIES;
 
     #[test]
     fn filter_opportunities_by_single_label() {
@@ -184,8 +184,8 @@ impl TryFrom<DTO> for Opportunity {
 fn extract_options(email: String, phone: String, _mobile: String) -> Vec<ContactOption> {
     use ContactOption::*;
     vec![
-        EMail((email, "".to_string()).try_into().unwrap()),
-        Phone((phone, "".to_string()).try_into().unwrap()),
+        EMail((email, "".into()).try_into().unwrap()),
+        Phone((phone, "".into()).try_into().unwrap()),
     ]
 }
 
@@ -197,57 +197,57 @@ fn extract_labels(
 ) -> Vec<Label> {
     let mut my_vector: Vec<Label> = vec![];
 
-    if label_1.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
+    if label_1.to_string().split('=').nth(0).unwrap() != "" {
         my_vector.push(Label {
             key: label_1
                 .to_string()
-                .split("=")
+                .split('=')
                 .nth(0)
                 .unwrap()
                 .trim()
                 .to_string(),
-            values: vec![label_1.to_string().split("=").nth(1).unwrap().to_string()],
+            values: vec![label_1.split('=').nth(1).unwrap().to_string()],
         })
     }
 
-    if label_2.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
+    if label_2.to_string().split('=').nth(0).unwrap() != "" {
         my_vector.push(Label {
             key: label_2
                 .to_string()
-                .split("=")
+                .split('=')
                 .nth(0)
                 .unwrap()
                 .trim()
                 .to_string(),
-            values: vec![label_2.to_string().split("=").nth(1).unwrap().to_string()],
+            values: vec![label_2.split('=').nth(1).unwrap().to_string()],
         })
     }
 
-    if label_3.to_string().split("=").nth(0).unwrap().to_string() != "".to_string().trim() {
+    if label_3.to_string().split('=').nth(0).unwrap() != "" {
         my_vector.push(Label {
             key: label_3
                 .to_string()
-                .split("=")
+                .split('=')
                 .nth(0)
                 .unwrap()
                 .trim()
                 .to_string(),
-            values: vec![label_3.to_string().split("=").nth(1).unwrap().to_string()],
+            values: vec![label_3.split('=').nth(1).unwrap().to_string()],
         })
     }
 
-    if label_4.to_string().split("=").nth(0).unwrap().to_string() != "".to_string() {
+    if label_4.to_string().split('=').nth(0).unwrap() != "" {
         my_vector.push(Label {
             key: label_4
                 .to_string()
-                .split("=")
+                .split('=')
                 .nth(0)
                 .unwrap()
                 .trim()
                 .to_string(),
-            values: vec![label_4.to_string().split("=").nth(1).unwrap().to_string()],
+            values: vec![label_4.split('=').nth(1).unwrap().to_string()],
         })
     }
 
-    return my_vector;
+    my_vector
 }

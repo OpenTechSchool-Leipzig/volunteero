@@ -41,10 +41,10 @@ fn find_by_labels(
     labels: LabelList,
     opportunities: State<OpportunityRepository>,
 ) -> Json<Vec<Opportunity>> {
-    let label_filters = labels
+    let label_filters: Vec<_> = labels
         .0
         .into_iter()
-        .map(|label| OpportunityFilter::LabelFilter(label))
+        .map(OpportunityFilter::LabelFilter)
         .collect();
 
     Json(opportunities.find(&label_filters))
