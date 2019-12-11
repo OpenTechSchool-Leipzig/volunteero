@@ -35,7 +35,7 @@ lazy_static! {
             ),
             ContactOption::Phone(
                 PhoneNumber::try_from((
-                    "+4927182818284".to_string(),
+                    "004927182818284".to_string(),
                     "Nur bis 18:00Uhr".to_string()
                 ))
                 .unwrap()
