@@ -4,7 +4,7 @@ use std::path::PathBuf;
 
 use heart::rocket;
 
-use crate::common::default_rocket;
+pub use crate::common::*;
 
 #[test]
 fn crash_on_missing_csv() {
