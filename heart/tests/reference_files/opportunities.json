@@ -1,0 +1,284 @@
+[
+    {
+        "labels": [
+            {
+                "values": [
+                    "Fußball"
+                ],
+                "key": "sport"
+            },
+            {
+                "values": [
+                    "Sportbetrieb"
+                ],
+                "key": "category"
+            }
+        ],
+        "contact": {
+            "options": [
+                {
+                    "email": {
+                        "note": null,
+                        "value": "mmustermann@example.org"
+                    }
+                },
+                {
+                    "phone": {
+                        "note": null,
+                        "value": "0123 456789"
+                    }
+                }
+            ],
+            "name": "Max Mustermann"
+        },
+        "locations": [
+            {
+                "city": "Leipzig",
+                "postcode": "04207",
+                "house_number": "16",
+                "street": "Traumstraße",
+                "name": "Spielplatz (Rasen)"
+            }
+        ],
+        "organisation": {
+            "name": "FC Grün-Gelb Testhausen e.V.",
+            "id": "42"
+        },
+        "job_description": "Trainer"
+    },
+    {
+        "labels": [
+            {
+                "values": [
+                    "Fußball"
+                ],
+                "key": "sport"
+            },
+            {
+                "values": [
+                    "Sportbetrieb"
+                ],
+                "key": "category"
+            }
+        ],
+        "contact": {
+            "options": [
+                {
+                    "email": {
+                        "note": null,
+                        "value": "mmustermann@example.org"
+                    }
+                },
+                {
+                    "phone": {
+                        "note": null,
+                        "value": "0123 456789"
+                    }
+                }
+            ],
+            "name": "Max Mustermann"
+        },
+        "locations": [
+            {
+                "city": "Leipzig",
+                "postcode": "04207",
+                "house_number": "16",
+                "street": "Traumstraße",
+                "name": "Spielplatz (Rasen)"
+            }
+        ],
+        "organisation": {
+            "name": "FC Grün-Gelb Testhausen e.V.",
+            "id": "42"
+        },
+        "job_description": "Übungsleiter"
+    },
+    {
+        "labels": [
+            {
+                "values": [
+                    "Handball"
+                ],
+                "key": "sport"
+            },
+            {
+                "values": [
+                    "Sportbetrieb"
+                ],
+                "key": "category"
+            }
+        ],
+        "contact": {
+            "options": [
+                {
+                    "email": {
+                        "note": null,
+                        "value": "mtest@example.com"
+                    }
+                },
+                {
+                    "phone": {
+                        "note": null,
+                        "value": "0123 999999"
+                    }
+                }
+            ],
+            "name": "Maximilian Test"
+        },
+        "locations": [
+            {
+                "city": "Leipzig",
+                "postcode": "04129",
+                "house_number": "6",
+                "street": "Auf der Mauer",
+                "name": ""
+            }
+        ],
+        "organisation": {
+            "name": "SG Motor-9001 e.V",
+            "id": "97"
+        },
+        "job_description": "Trainer- und Mannschaftsbetreuertätigkeit"
+    },
+    {
+        "labels": [
+            {
+                "values": [
+                    "Schwimmen"
+                ],
+                "key": "sport"
+            },
+            {
+                "values": [
+                    "Sportbetrieb"
+                ],
+                "key": "category"
+            }
+        ],
+        "contact": {
+            "options": [
+                {
+                    "email": {
+                        "note": null,
+                        "value": "mmusterfrau@example.com"
+                    }
+                },
+                {
+                    "phone": {
+                        "note": null,
+                        "value": "0321 111222"
+                    }
+                }
+            ],
+            "name": "Maria Musterfrau"
+        },
+        "locations": [
+            {
+                "city": "Leipzig",
+                "postcode": "04229",
+                "house_number": "8",
+                "street": "Tischstrasse",
+                "name": ""
+            }
+        ],
+        "organisation": {
+            "name": "SV Fußwerk e.V.",
+            "id": "11"
+        },
+        "job_description": "Ausbildung zum Kampfrichter"
+    },
+    {
+        "labels": [
+            {
+                "values": [
+                    "Tischtennis"
+                ],
+                "key": "sport"
+            },
+            {
+                "values": [
+                    "Sportbetrieb"
+                ],
+                "key": "category"
+            }
+        ],
+        "contact": {
+            "options": [
+                {
+                    "email": {
+                        "note": null,
+                        "value": "theotest@example.de"
+                    }
+                },
+                {
+                    "phone": {
+                        "note": null,
+                        "value": "0123 333444"
+                    }
+                }
+            ],
+            "name": "Theo Test"
+        },
+        "locations": [
+            {
+                "city": "Leipzig",
+                "postcode": "04129",
+                "house_number": "3",
+                "street": "Giebelstrasse",
+                "name": ""
+            }
+        ],
+        "organisation": {
+            "name": "Faszinierender Sport-, Spiel- und Leseverein \"123\" e.V.",
+            "id": "13"
+        },
+        "job_description": "Schiedsrichter"
+    },
+    {
+        "labels": [
+            {
+                "values": [
+                    "Tischtennis"
+                ],
+                "key": "sport"
+            },
+            {
+                "values": [
+                    "Sportbetrieb"
+                ],
+                "key": "category"
+            }
+        ],
+        "contact": {
+            "options": [
+                {
+                    "email": {
+                        "note": null,
+                        "value": "theotest@example.de"
+                    }
+                },
+                {
+                    "phone": {
+                        "note": null,
+                        "value": "0123 333444"
+                    }
+                }
+            ],
+            "name": "Theo Test"
+        },
+        "locations": [
+            {
+                "city": "Leipzig",
+                "postcode": "04129",
+                "house_number": "3",
+                "street": "Giebelstrasse",
+                "name": ""
+            }
+        ],
+        "organisation": {
+            "name": "Faszinierender Sport-, Spiel- und Leseverein \"123\" e.V.",
+            "id": "13"
+        },
+        "job_description": "Kampfrichter"
+    }
+]
