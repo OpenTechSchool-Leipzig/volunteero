@@ -1,9 +1,9 @@
 use std::convert::TryFrom;
 
-use crate::address::Address;
 use crate::contact::ContactOption;
 use crate::contact::{Contact, EMailAddress, PhoneNumber};
 use crate::label::Label;
+use crate::location::{Address, Location};
 use crate::opportunity::Opportunity;
 use crate::organisation::Organisation;
 
@@ -19,12 +19,15 @@ lazy_static! {
         id: "42".to_string(),
         name: "Fußball Verein Leipzig e.V.".to_string(),
     }];
-    static ref LOCATIONS: Vec<Address> = vec![Address {
-        name: "Kaninchenrennbahn".to_string(),
-        street: "Musterallee".to_string(),
-        house_number: "37 F".to_string(),
-        postcode: "04229".to_string(),
-        city: "Leipzig".to_string(),
+    static ref LOCATIONS: Vec<Location> = vec![Location {
+        address: Address {
+            name: "Kaninchenrennbahn".to_string(),
+            street: "Musterallee".to_string(),
+            house_number: "37 F".to_string(),
+            postcode: "04229".to_string(),
+            city: "Leipzig".to_string(),
+        },
+        coordinates: None,
     }];
     static ref CONTACTS: Vec<Contact> = vec![Contact {
         name: "Herr Müller".to_string(),

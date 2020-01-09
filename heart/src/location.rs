@@ -1,5 +1,13 @@
 use serde::Serialize;
 
+use crate::geocoder::LatLon;
+
+#[derive(Debug, Clone, PartialEq, Serialize)]
+pub struct Location {
+    pub address: Address,
+    pub coordinates: Option<LatLon>,
+}
+
 #[derive(Debug, PartialEq, Clone, Serialize)]
 pub struct Address {
     pub name: String,

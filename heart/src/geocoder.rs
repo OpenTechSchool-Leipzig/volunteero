@@ -1,9 +1,9 @@
-use crate::address::Address;
+use crate::location::Address;
 use reqwest::header::USER_AGENT;
 use reqwest::Error;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, PartialEq, Deserialize, Clone)]
+#[derive(Debug, PartialEq, Deserialize, Clone, Serialize)]
 pub struct LatLon {
     lat: String,
     lon: String,
