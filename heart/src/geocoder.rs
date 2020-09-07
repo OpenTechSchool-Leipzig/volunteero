@@ -52,8 +52,8 @@ mod tests {
         assert_eq!(
             geocode(&address),
             Ok(LatLon {
-                lat: "51.3310959".to_string(),
-                lon: "12.3418933350183".to_string(),
+                lat: "51.33102685".to_string(),
+                lon: "12.341853727202736".to_string()
             })
         );
     }
