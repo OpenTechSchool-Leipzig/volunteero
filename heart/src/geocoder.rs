@@ -1,9 +1,9 @@
-use crate::address::Address;
+use crate::location::Address;
 use reqwest::header::USER_AGENT;
 use reqwest::Error;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, PartialEq, Deserialize, Clone)]
+#[derive(Debug, PartialEq, Deserialize, Clone, Serialize)]
 pub struct LatLon {
     lat: String,
     lon: String,
@@ -52,8 +52,8 @@ mod tests {
         assert_eq!(
             geocode(&address),
             Ok(LatLon {
-                lat: "51.3310959".to_string(),
-                lon: "12.3418933350183".to_string(),
+                lat: "51.33102685".to_string(),
+                lon: "12.341853727202736".to_string()
             })
         );
     }

@@ -1,24 +1,22 @@
-use crate::address::Address;
-
-use crate::contact::Contact;
-use crate::contact::ContactOption;
-
-use crate::dto::DTO;
-use crate::organisation::Organisation;
 use std::convert::TryFrom;
 use std::convert::TryInto;
 
-use crate::label::Label;
-
-use crate::repository::Repository;
-
 use serde::Serialize;
+
+use crate::contact::Contact;
+use crate::contact::ContactOption;
+use crate::dto::DTO;
+use crate::geocoder::geocode;
+use crate::label::Label;
+use crate::location::{Address, Location};
+use crate::organisation::Organisation;
+use crate::repository::Repository;
 
 #[derive(Debug, PartialEq, Serialize, Clone)]
 pub struct Opportunity {
     pub job_description: String,
     pub organisation: Organisation,
-    pub locations: Vec<Address>,
+    pub locations: Vec<Location>,
     pub contact: Contact,
     pub labels: Vec<Label>,
 }
@@ -30,7 +28,7 @@ impl Opportunity {
             .into_iter()
             .find(|label| label.key == key)
             .map(|label| label.values)
-            .unwrap_or_else(|| vec![])
+            .unwrap_or_else(Vec::new)
     }
 }
 
@@ -148,6 +146,14 @@ impl TryFrom<DTO> for Opportunity {
     type Error = String;
 
     fn try_from(raw_data: DTO) -> Result<Self, Self::Error> {
+        let address = Address {
+            name: raw_data.address_1_name.trim().to_string(),
+            street: raw_data.address_1_street.trim().to_string(),
+            house_number: raw_data.address_1_housenr.trim().to_string(),
+            postcode: raw_data.address_1_postcode.trim().to_string(),
+            city: raw_data.address_1_city.trim().to_string(),
+        };
+
         // TODO: validate
         Ok(Self {
             job_description: raw_data.job_description.trim().to_string(),
@@ -155,12 +161,9 @@ impl TryFrom<DTO> for Opportunity {
                 id: raw_data.organisation_id,
                 name: raw_data.organisation_name.trim().to_string(),
             },
-            locations: vec![Address {
-                name: raw_data.address_1_name.trim().to_string(),
-                street: raw_data.address_1_street.trim().to_string(),
-                house_number: raw_data.address_1_housenr.trim().to_string(),
-                postcode: raw_data.address_1_postcode.trim().to_string(),
-                city: raw_data.address_1_city.trim().to_string(),
+            locations: vec![Location {
+                coordinates: geocode(&address).ok(),
+                address,
             }],
             contact: Contact {
                 name: raw_data.contact_name,
@@ -183,10 +186,11 @@ impl TryFrom<DTO> for Opportunity {
 // TODO should return all addresses ||  now only returns one adress
 fn extract_options(email: String, phone: String, _mobile: String) -> Vec<ContactOption> {
     use ContactOption::*;
-    vec![
-        EMail((email, "".into()).try_into().unwrap()),
-        Phone((phone, "".into()).try_into().unwrap()),
-    ]
+    let results = vec![
+        (email, "".into()).try_into().map(EMail),
+        (phone, "".into()).try_into().map(Phone),
+    ];
+    results.iter().filter_map(|r| r.clone().ok()).collect()
 }
 
 fn extract_labels(
@@ -197,54 +201,30 @@ fn extract_labels(
 ) -> Vec<Label> {
     let mut my_vector: Vec<Label> = vec![];
 
-    if label_1.to_string().split('=').nth(0).unwrap() != "" {
+    if label_1.split('=').next().unwrap() != "" {
         my_vector.push(Label {
-            key: label_1
-                .to_string()
-                .split('=')
-                .nth(0)
-                .unwrap()
-                .trim()
-                .to_string(),
+            key: label_1.split('=').next().unwrap().trim().to_string(),
             values: vec![label_1.split('=').nth(1).unwrap().to_string()],
         })
     }
 
-    if label_2.to_string().split('=').nth(0).unwrap() != "" {
+    if label_2.split('=').next().unwrap() != "" {
         my_vector.push(Label {
-            key: label_2
-                .to_string()
-                .split('=')
-                .nth(0)
-                .unwrap()
-                .trim()
-                .to_string(),
+            key: label_2.split('=').next().unwrap().trim().to_string(),
             values: vec![label_2.split('=').nth(1).unwrap().to_string()],
         })
     }
 
-    if label_3.to_string().split('=').nth(0).unwrap() != "" {
+    if label_3.split('=').next().unwrap() != "" {
         my_vector.push(Label {
-            key: label_3
-                .to_string()
-                .split('=')
-                .nth(0)
-                .unwrap()
-                .trim()
-                .to_string(),
+            key: label_3.split('=').next().unwrap().trim().to_string(),
             values: vec![label_3.split('=').nth(1).unwrap().to_string()],
         })
     }
 
-    if label_4.to_string().split('=').nth(0).unwrap() != "" {
+    if label_4.split('=').next().unwrap() != "" {
         my_vector.push(Label {
-            key: label_4
-                .to_string()
-                .split('=')
-                .nth(0)
-                .unwrap()
-                .trim()
-                .to_string(),
+            key: label_4.split('=').next().unwrap().trim().to_string(),
             values: vec![label_4.split('=').nth(1).unwrap().to_string()],
         })
     }

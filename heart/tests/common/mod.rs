@@ -1,11 +1,9 @@
 use std::fs;
 use std::path::PathBuf;
 
-use assert_json_diff;
 use rocket::http::{ContentType, Status};
 use rocket::local::Client;
 use rocket::Rocket;
-use serde_json;
 
 use heart::{rocket, UserFacingError};
 
@@ -39,7 +37,8 @@ pub fn assert_json_response(uri: &str, expected_json: serde_json::Value) {
     assert_eq!(response.status(), Status::Ok);
     assert_eq!(response.content_type(), Some(ContentType::JSON));
 
-    let body =
+    let body: serde_json::Value =
         serde_json::from_str(&response.body_string().unwrap()).expect("response is no valid JSON");
+
     assert_json_diff::assert_json_eq!(body, expected_json);
 }
