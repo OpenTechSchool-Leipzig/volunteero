@@ -18,6 +18,6 @@ fn main() {
 }
 
 fn usage() -> String {
-    let program = env::args_os().nth(0).expect("could not get program name");
+    let program = env::args_os().next().expect("could not get program name");
     format!("{:?} CSV_FILE", program)
 }
